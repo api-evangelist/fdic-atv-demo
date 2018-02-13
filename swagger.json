@@ -35,11 +35,19 @@
         "tags": ["Banks"]
       }
     },
-    "/banks/:bank_id": {
+    "/banks/{bank_id}": {
       "get": {
         "summary": "Get Bank",
         "description": "Returns an individual bank..",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "bank_id",
+            "description": "The unique id for the bank.",
+            "required": true,
+            "in": "path",
+            "type": "integer"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful Operation",
