@@ -1,0 +1,943 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "ATV1 Apps API",
+    "description": "This is the OpenAPI for the ATV1 Apps API",
+    "contact": {
+      "name": "Kin Lane",
+      "url": "http://github.com/kinlane/atv1",
+      "email": "info@apievangelist.com"
+    }
+  },
+  "host": "atv1.cfapps.io",
+  "basePath": "/api/v1",
+  "schemes": [
+    "https"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/banks": {
+      "get": {
+        "summary": "Get Banks",
+        "description": "Returns a list of banks",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/banks"
+            }
+          }
+        },
+        "tags": ["Banks"]
+      }
+    },
+    "/banks/:bank_id": {
+      "get": {
+        "summary": "Get Bank",
+        "description": "Returns an individual bank..",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/bank"
+            }
+          }
+        },
+        "tags": ["Banks"]
+      }
+    }
+  },
+  "definitions": {
+    "banks": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The Type Schema"
+            },
+            "params": {
+              "type": "object",
+              "description": "The Type Schema"
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "title": "A link to it self.",
+              "description": "The full URL to reference this object."
+            }
+          }
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "type": "string",
+                "description": "The Address Schema",
+                "default": ""
+              },
+              "city": {
+                "type": "string",
+                "description": "The City Schema",
+                "default": ""
+              },
+              "cbsa_metro_name": {
+                "type": "string",
+                "description": "The Cbsa_metro_name Schema",
+                "default": ""
+              },
+              "name": {
+                "type": "string",
+                "description": "The Name Schema",
+                "default": ""
+              },
+              "namehcr": {
+                "type": "string",
+                "description": "The Namehcr Schema",
+                "default": ""
+              },
+              "score": {
+                "type": "integer",
+                "description": "The Score Schema",
+                "default": 0
+              },
+              "id": {
+                "type": "string",
+                "description": "The Id Schema",
+                "default": ""
+              },
+              "type": {
+                "type": "string",
+                "description": "The Type Schema",
+                "default": ""
+              },
+              "links": {
+                "type": "object",
+                "properties": {
+                  "self": {
+                    "type": "string",
+                    "description": "The Self Schema",
+                    "default": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "bank": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "The Type Schema",
+              "default": ""
+            },
+            "params": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": ""
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "object",
+          "properties": {
+            "self": {
+              "type": "string",
+              "description": "The Self Schema",
+              "default": ""
+            }
+          }
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "cfpbflag": {
+              "type": "integer",
+              "description": "The Cfpbflag Schema",
+              "default": 0
+            },
+            "rssdhcr": {
+              "type": "integer",
+              "description": "The Rssdhcr Schema",
+              "default": 0
+            },
+            "specgrp": {
+              "type": "integer",
+              "description": "The Specgrp Schema",
+              "default": 0
+            },
+            "charter": {
+              "type": "integer",
+              "description": "The Charter Schema",
+              "default": 0
+            },
+            "county": {
+              "type": "string",
+              "description": "The County Schema",
+              "default": ""
+            },
+            "cfpbenddte": {
+              "type": "string",
+              "description": "The Cfpbenddte Schema",
+              "default": ""
+            },
+            "cert": {
+              "type": "integer",
+              "description": "The Cert Schema",
+              "default": 0
+            },
+            "fdicdbs": {
+              "type": "integer",
+              "description": "The Fdicdbs Schema",
+              "default": 0
+            },
+            "dep": {
+              "type": "string",
+              "description": "The Dep Schema",
+              "default": ""
+            },
+            "stnum": {
+              "type": "integer",
+              "description": "The Stnum Schema",
+              "default": 0
+            },
+            "te10n528": {
+              "type": "null",
+              "description": "The Te10n528 Schema",
+              "default": null
+            },
+            "cbsa_metro": {
+              "type": "integer",
+              "description": "The Cbsa_metro Schema",
+              "default": 0
+            },
+            "procdate": {
+              "type": "string",
+              "description": "The Procdate Schema",
+              "default": ""
+            },
+            "inactive": {
+              "type": "integer",
+              "description": "The Inactive Schema",
+              "default": 0
+            },
+            "insagnt2": {
+              "type": "null",
+              "description": "The Insagnt2 Schema",
+              "default": null
+            },
+            "cmsa": {
+              "type": "null",
+              "description": "The Cmsa Schema",
+              "default": null
+            },
+            "te04n529": {
+              "type": "string",
+              "description": "The Te04n529 Schema",
+              "default": ""
+            },
+            "te04n528": {
+              "type": "string",
+              "description": "The Te04n528 Schema",
+              "default": ""
+            },
+            "roaq": {
+              "type": "number",
+              "description": "The Roaq Schema",
+              "default": 0
+            },
+            "insagnt1": {
+              "type": "string",
+              "description": "The Insagnt1 Schema",
+              "default": ""
+            },
+            "zip": {
+              "type": "integer",
+              "description": "The Zip Schema",
+              "default": 0
+            },
+            "insbif": {
+              "type": "integer",
+              "description": "The Insbif Schema",
+              "default": 0
+            },
+            "stchrtr": {
+              "type": "integer",
+              "description": "The Stchrtr Schema",
+              "default": 0
+            },
+            "active": {
+              "type": "integer",
+              "description": "The Active Schema",
+              "default": 0
+            },
+            "stalp": {
+              "type": "string",
+              "description": "The Stalp Schema",
+              "default": ""
+            },
+            "regagent2": {
+              "type": "null",
+              "description": "The Regagent2 Schema",
+              "default": null
+            },
+            "te06n528": {
+              "type": "null",
+              "description": "The Te06n528 Schema",
+              "default": null
+            },
+            "te06n529": {
+              "type": "string",
+              "description": "The Te06n529 Schema",
+              "default": ""
+            },
+            "insdate": {
+              "type": "string",
+              "description": "The Insdate Schema",
+              "default": ""
+            },
+            "fdicsupv": {
+              "type": "string",
+              "description": "The Fdicsupv Schema",
+              "default": ""
+            },
+            "instcrcd": {
+              "type": "integer",
+              "description": "The Instcrcd Schema",
+              "default": 0
+            },
+            "offdom": {
+              "type": "integer",
+              "description": "The Offdom Schema",
+              "default": 0
+            },
+            "city": {
+              "type": "string",
+              "description": "The City Schema",
+              "default": ""
+            },
+            "qbprcoml": {
+              "type": "integer",
+              "description": "The Qbprcoml Schema",
+              "default": 0
+            },
+            "te07n528": {
+              "type": "null",
+              "description": "The Te07n528 Schema",
+              "default": null
+            },
+            "otsregnm": {
+              "type": "string",
+              "description": "The Otsregnm Schema",
+              "default": ""
+            },
+            "occdist": {
+              "type": "integer",
+              "description": "The Occdist Schema",
+              "default": 0
+            },
+            "fedchrtr": {
+              "type": "integer",
+              "description": "The Fedchrtr Schema",
+              "default": 0
+            },
+            "repdte": {
+              "type": "string",
+              "description": "The Repdte Schema",
+              "default": ""
+            },
+            "certcons": {
+              "type": "integer",
+              "description": "The Certcons Schema",
+              "default": 0
+            },
+            "te09n528": {
+              "type": "null",
+              "description": "The Te09n528 Schema",
+              "default": null
+            },
+            "netinc": {
+              "type": "string",
+              "description": "The Netinc Schema",
+              "default": ""
+            },
+            "denovo": {
+              "type": "integer",
+              "description": "The Denovo Schema",
+              "default": 0
+            },
+            "cityhcr": {
+              "type": "string",
+              "description": "The Cityhcr Schema",
+              "default": ""
+            },
+            "inscoml": {
+              "type": "integer",
+              "description": "The Inscoml Schema",
+              "default": 0
+            },
+            "cb": {
+              "type": "integer",
+              "description": "The Cb Schema",
+              "default": 0
+            },
+            "subchaps": {
+              "type": "integer",
+              "description": "The Subchaps Schema",
+              "default": 0
+            },
+            "roaptx": {
+              "type": "number",
+              "description": "The Roaptx Schema",
+              "default": 0
+            },
+            "address": {
+              "type": "string",
+              "description": "The Address Schema",
+              "default": ""
+            },
+            "cbsa_micro_flg": {
+              "type": "integer",
+              "description": "The Cbsa_micro_flg Schema",
+              "default": 0
+            },
+            "iba": {
+              "type": "integer",
+              "description": "The Iba Schema",
+              "default": 0
+            },
+            "estymd": {
+              "type": "string",
+              "description": "The Estymd Schema",
+              "default": ""
+            },
+            "fed_rssd": {
+              "type": "integer",
+              "description": "The Fed_rssd Schema",
+              "default": 0
+            },
+            "uninum": {
+              "type": "integer",
+              "description": "The Uninum Schema",
+              "default": 0
+            },
+            "cbsa_div_no": {
+              "type": "integer",
+              "description": "The Cbsa_div_no Schema",
+              "default": 0
+            },
+            "inssaif": {
+              "type": "integer",
+              "description": "The Inssaif Schema",
+              "default": 0
+            },
+            "ultcert": {
+              "type": "integer",
+              "description": "The Ultcert Schema",
+              "default": 0
+            },
+            "te02n529": {
+              "type": "string",
+              "description": "The Te02n529 Schema",
+              "default": ""
+            },
+            "te02n528": {
+              "type": "string",
+              "description": "The Te02n528 Schema",
+              "default": ""
+            },
+            "msa": {
+              "type": "string",
+              "description": "The Msa Schema",
+              "default": ""
+            },
+            "asset": {
+              "type": "string",
+              "description": "The Asset Schema",
+              "default": ""
+            },
+            "form31": {
+              "type": "integer",
+              "description": "The Form31 Schema",
+              "default": 0
+            },
+            "fldoff": {
+              "type": "string",
+              "description": "The Fldoff Schema",
+              "default": ""
+            },
+            "changec3": {
+              "type": "integer",
+              "description": "The Changec3 Schema",
+              "default": 0
+            },
+            "changec4": {
+              "type": "integer",
+              "description": "The Changec4 Schema",
+              "default": 0
+            },
+            "changec5": {
+              "type": "integer",
+              "description": "The Changec5 Schema",
+              "default": 0
+            },
+            "oakar": {
+              "type": "integer",
+              "description": "The Oakar Schema",
+              "default": 0
+            },
+            "fed": {
+              "type": "integer",
+              "description": "The Fed Schema",
+              "default": 0
+            },
+            "hctmult": {
+              "type": "integer",
+              "description": "The Hctmult Schema",
+              "default": 0
+            },
+            "te03n529": {
+              "type": "string",
+              "description": "The Te03n529 Schema",
+              "default": ""
+            },
+            "te03n528": {
+              "type": "string",
+              "description": "The Te03n528 Schema",
+              "default": ""
+            },
+            "msa_no": {
+              "type": "integer",
+              "description": "The Msa_no Schema",
+              "default": 0
+            },
+            "offices": {
+              "type": "integer",
+              "description": "The Offices Schema",
+              "default": 0
+            },
+            "bkclass": {
+              "type": "string",
+              "description": "The Bkclass Schema",
+              "default": ""
+            },
+            "sasser": {
+              "type": "integer",
+              "description": "The Sasser Schema",
+              "default": 0
+            },
+            "te01n528": {
+              "type": "string",
+              "description": "The Te01n528 Schema",
+              "default": ""
+            },
+            "stalphcr": {
+              "type": "string",
+              "description": "The Stalphcr Schema",
+              "default": ""
+            },
+            "cbsa_no": {
+              "type": "integer",
+              "description": "The Cbsa_no Schema",
+              "default": 0
+            },
+            "roeq": {
+              "type": "number",
+              "description": "The Roeq Schema",
+              "default": 0
+            },
+            "instag": {
+              "type": "integer",
+              "description": "The Instag Schema",
+              "default": 0
+            },
+            "otsdist": {
+              "type": "integer",
+              "description": "The Otsdist Schema",
+              "default": 0
+            },
+            "te05n528": {
+              "type": "null",
+              "description": "The Te05n528 Schema",
+              "default": null
+            },
+            "cmsa_no": {
+              "type": "integer",
+              "description": "The Cmsa_no Schema",
+              "default": 0
+            },
+            "insdif": {
+              "type": "integer",
+              "description": "The Insdif Schema",
+              "default": 0
+            },
+            "te05n529": {
+              "type": "string",
+              "description": "The Te05n529 Schema",
+              "default": ""
+            },
+            "cbsa_metro_flg": {
+              "type": "integer",
+              "description": "The Cbsa_metro_flg Schema",
+              "default": 0
+            },
+            "netincq": {
+              "type": "string",
+              "description": "The Netincq Schema",
+              "default": ""
+            },
+            "eq": {
+              "type": "string",
+              "description": "The Eq Schema",
+              "default": ""
+            },
+            "branches": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "offnum": {
+                    "type": "integer",
+                    "description": "The Offnum Schema",
+                    "default": 0
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The Name Schema",
+                    "default": ""
+                  },
+                  "offname": {
+                    "type": "string",
+                    "description": "The Offname Schema",
+                    "default": ""
+                  },
+                  "type": {
+                    "type": "string",
+                    "description": "The Type Schema",
+                    "default": ""
+                  }
+                }
+              }
+            },
+            "mutual": {
+              "type": "integer",
+              "description": "The Mutual Schema",
+              "default": 0
+            },
+            "webaddr": {
+              "type": "string",
+              "description": "The Webaddr Schema",
+              "default": ""
+            },
+            "name": {
+              "type": "string",
+              "description": "The Name Schema",
+              "default": ""
+            },
+            "regagnt": {
+              "type": "string",
+              "description": "The Regagnt Schema",
+              "default": ""
+            },
+            "roaptxq": {
+              "type": "number",
+              "description": "The Roaptxq Schema",
+              "default": 0
+            },
+            "specgrpn": {
+              "type": "string",
+              "description": "The Specgrpn Schema",
+              "default": ""
+            },
+            "depdom": {
+              "type": "string",
+              "description": "The Depdom Schema",
+              "default": ""
+            },
+            "effdate": {
+              "type": "string",
+              "description": "The Effdate Schema",
+              "default": ""
+            },
+            "endefymd": {
+              "type": "string",
+              "description": "The Endefymd Schema",
+              "default": ""
+            },
+            "changec1": {
+              "type": "integer",
+              "description": "The Changec1 Schema",
+              "default": 0
+            },
+            "csa_no": {
+              "type": "integer",
+              "description": "The Csa_no Schema",
+              "default": 0
+            },
+            "stname": {
+              "type": "string",
+              "description": "The Stname Schema",
+              "default": ""
+            },
+            "changec2": {
+              "type": "integer",
+              "description": "The Changec2 Schema",
+              "default": 0
+            },
+            "trust": {
+              "type": "integer",
+              "description": "The Trust Schema",
+              "default": 0
+            },
+            "stmult": {
+              "type": "integer",
+              "description": "The Stmult Schema",
+              "default": 0
+            },
+            "tract": {
+              "type": "integer",
+              "description": "The Tract Schema",
+              "default": 0
+            },
+            "cbsa": {
+              "type": "string",
+              "description": "The Cbsa Schema",
+              "default": ""
+            },
+            "roa": {
+              "type": "number",
+              "description": "The Roa Schema",
+              "default": 0
+            },
+            "clcode": {
+              "type": "integer",
+              "description": "The Clcode Schema",
+              "default": 0
+            },
+            "inssave": {
+              "type": "integer",
+              "description": "The Inssave Schema",
+              "default": 0
+            },
+            "newcert": {
+              "type": "integer",
+              "description": "The Newcert Schema",
+              "default": 0
+            },
+            "te08n528": {
+              "type": "null",
+              "description": "The Te08n528 Schema",
+              "default": null
+            },
+            "cbsa_div": {
+              "type": "null",
+              "description": "The Cbsa_div Schema",
+              "default": null
+            },
+            "roe": {
+              "type": "number",
+              "description": "The Roe Schema",
+              "default": 0
+            },
+            "docket": {
+              "type": "integer",
+              "description": "The Docket Schema",
+              "default": 0
+            },
+            "offfor": {
+              "type": "integer",
+              "description": "The Offfor Schema",
+              "default": 0
+            },
+            "offoa": {
+              "type": "integer",
+              "description": "The Offoa Schema",
+              "default": 0
+            },
+            "fdicregn": {
+              "type": "string",
+              "description": "The Fdicregn Schema",
+              "default": ""
+            },
+            "law_sasser_flg": {
+              "type": "string",
+              "description": "The Law_sasser_flg Schema",
+              "default": ""
+            },
+            "namehcr": {
+              "type": "string",
+              "description": "The Namehcr Schema",
+              "default": ""
+            },
+            "rundate": {
+              "type": "string",
+              "description": "The Rundate Schema",
+              "default": ""
+            },
+            "csa_flg": {
+              "type": "integer",
+              "description": "The Csa_flg Schema"
+            },
+            "cfpbeffdte": {
+              "type": "string",
+              "description": "The Cfpbeffdte Schema",
+              "default": ""
+            },
+            "stcnty": {
+              "type": "integer",
+              "description": "The Stcnty Schema",
+              "default": 0
+            },
+            "insfdic": {
+              "type": "integer",
+              "description": "The Insfdic Schema",
+              "default": 0
+            },
+            "cbsa_div_flg": {
+              "type": "integer",
+              "description": "The Cbsa_div_flg Schema",
+              "default": 0
+            },
+            "chrtagnt": {
+              "type": "string",
+              "description": "The Chrtagnt Schema",
+              "default": ""
+            },
+            "te01n529": {
+              "type": "string",
+              "description": "The Te01n529 Schema",
+              "default": ""
+            },
+            "conserve": {
+              "type": "string",
+              "description": "The Conserve Schema",
+              "default": ""
+            },
+            "parcert": {
+              "type": "integer",
+              "description": "The Parcert Schema",
+              "default": 0
+            },
+            "csa": {
+              "type": "string",
+              "description": "The Csa Schema",
+              "default": ""
+            },
+            "dateupdt": {
+              "type": "string",
+              "description": "The Dateupdt Schema",
+              "default": ""
+            },
+            "cbsa_metro_name": {
+              "type": "string",
+              "description": "The Cbsa_metro_name Schema",
+              "default": ""
+            },
+            "suprv_fd": {
+              "type": "integer",
+              "description": "The Suprv_fd Schema",
+              "default": 0
+            },
+            "risdate": {
+              "type": "string",
+              "description": "The Risdate Schema",
+              "default": ""
+            },
+            "sdi_data": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "p9reres": {
+                    "type": "integer",
+                    "description": "The P9reres Schema",
+                    "default": 0
+                  },
+                  "lnremult": {
+                    "type": "integer",
+                    "description": "The Lnremult Schema",
+                    "default": 0
+                  },
+                  "offdom": {
+                    "type": "integer",
+                    "description": "The Offdom Schema",
+                    "default": 0
+                  },
+                  "lnrecnfm": {
+                    "type": "integer",
+                    "description": "The Lnrecnfm Schema",
+                    "default": 0
+                  },
+                  "reportdate": {
+                    "type": "string",
+                    "description": "The Reportdate Schema",
+                    "default": ""
+                  },
+                  "lnre": {
+                    "type": "integer",
+                    "description": "The Lnre Schema",
+                    "default": 0
+                  },
+                  "lnreres": {
+                    "type": "integer",
+                    "description": "The Lnreres Schema",
+                    "default": 0
+                  },
+                  "cert": {
+                    "type": "integer",
+                    "description": "The Cert Schema",
+                    "default": 0
+                  },
+                  "asset": {
+                    "type": "integer",
+                    "description": "The Asset Schema",
+                    "default": 0
+                  },
+                  "p3reres": {
+                    "type": "integer",
+                    "description": "The P3reres Schema",
+                    "default": 0
+                  }
+                }
+              }
+            },
+            "id": {
+              "type": "string",
+              "description": "The Id Schema",
+              "default": ""
+            },
+            "type": {
+              "type": "string",
+              "description": "The Type Schema",
+              "default": ""
+            }
+          }
+        }
+      }
+    }
+  }
+}
