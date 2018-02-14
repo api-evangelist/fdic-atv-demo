@@ -387,21 +387,6 @@ optgroup {
   font-weight: bold;
 }
 
-/* Tables
-   ========================================================================== */
-/**
- * Remove most spacing between table cells.
- */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-td,
-th {
-  padding: 0;
-}
-
 /* stylelint-disable at-rule-empty-line-before */
 @font-face {
   font-family: "Source Sans Pro";
@@ -1800,47 +1785,6 @@ p + ol {
   margin-bottom: 0;
 }
 
-table {
-  border-spacing: 2px;
-  margin: 2em 0;
-}
-
-thead th {
-  font-weight: 700;
-  color: #ffffff;
-}
-
-thead th,
-thead td {
-  background-color: #112e51;
-}
-
-th {
-  text-align: left;
-}
-
-th,
-td {
-  background-color: #ffffff;
-  border: 1px solid #5b616b;
-  font-weight: 400;
-  padding: 5px;
-}
-
-.usa-table-borderless thead th {
-  background-color: transparent;
-  border-top: 0;
-}
-
-.usa-table-borderless th,
-.usa-table-borderless td {
-  border-left: 0;
-  border-right: 0;
-}
-
-.usa-table-borderless th:first-child {
-  padding-left: 0;
-}
 
 caption {
   font-size: 1.5rem;
