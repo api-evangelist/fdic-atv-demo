@@ -51,6 +51,20 @@
             "required": true,
             "in": "query",
             "type": "integer"
+          },
+          {
+            "name": "format",
+            "description": "The format of the response (CSV, JSON)",
+            "required": true,
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "download",
+            "description": "The file name of the download",
+            "required": true,
+            "in": "query",
+            "type": "string"
           }
         ],
         "responses": {
