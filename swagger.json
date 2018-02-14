@@ -150,6 +150,50 @@
           "Branches"
         ]
       }
+    },
+    "/sdi": {
+      "get": {
+        "summary": "Get Statistics on Depository Institutions (SDI)",
+        "description": "Returns Statistics on Depository Institutions (SDI) listing.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/statistics_on_depository_institutions"
+            }
+          }
+        },
+        "tags": [
+          "Statistics on Depository Institutions (SDI)"
+        ]
+      }
+    },
+    "/sdi/{sdi_id}": {
+      "get": {
+        "summary": "Get Statistics on Depository Institution (SDI)",
+        "description": "Returns individual Statistics on Depository Institutions (SDI).",
+        "parameters": [
+          {
+            "name": "sdi_id",
+            "description": "The unique sdi_id for the bank.",
+            "required": true,
+            "in": "path",
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Operation",
+            "schema": {
+              "$ref": "#/definitions/statistics_on_depository_institution"
+            }
+          }
+        },
+        "tags": [
+          "Statistics on Depository Institutions (SDI)"
+        ]
+      }
     }
   },
   "definitions": {
@@ -1296,6 +1340,5451 @@
             "id": {
               "type": "integer",
               "description": "The Id Schema"
+            }
+          }
+        }
+      }
+    },
+    "statistics_on_depository_institutions": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$id": "/properties/meta",
+          "type": "object",
+          "properties": {
+            "type": {
+              "$id": "/properties/meta/properties/type",
+              "type": "string",
+              "title": "The Type Schema"
+            },
+            "params": {
+              "$id": "/properties/meta/properties/params",
+              "type": "object"
+            },
+            "collection": {
+              "$id": "/properties/meta/properties/collection",
+              "type": "object",
+              "properties": {
+                "limit": {
+                  "$id": "/properties/meta/properties/collection/properties/limit",
+                  "type": "integer",
+                  "title": "The Limit Schema"
+                },
+                "offset": {
+                  "$id": "/properties/meta/properties/collection/properties/offset",
+                  "type": "integer",
+                  "title": "The Offset Schema"
+                },
+                "totalItems": {
+                  "$id": "/properties/meta/properties/collection/properties/totalItems",
+                  "type": "integer",
+                  "title": "The Totalitems Schema"
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "$id": "/properties/links",
+          "type": "object",
+          "properties": {
+            "self": {
+              "$id": "/properties/links/properties/self",
+              "type": "string",
+              "title": "The Self Schema"
+            }
+          }
+        },
+        "data": {
+          "$id": "/properties/data",
+          "type": "object",
+          "properties": {
+            "items": {
+              "$id": "/properties/data/properties/items",
+              "type": "array",
+              "items": {
+                "$id": "/properties/data/properties/items/items",
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "$id": "/properties/data/properties/items/items/properties/address",
+                    "type": "string",
+                    "title": "The Address Schema"
+                  },
+                  "city": {
+                    "$id": "/properties/data/properties/items/items/properties/city",
+                    "type": "string",
+                    "title": "The City Schema"
+                  },
+                  "cbsa_metro_name": {
+                    "$id": "/properties/data/properties/items/items/properties/cbsa_metro_name",
+                    "type": "string",
+                    "title": "The Cbsa_metro_name Schema"
+                  },
+                  "name": {
+                    "$id": "/properties/data/properties/items/items/properties/name",
+                    "type": "string",
+                    "title": "The Name Schema"
+                  },
+                  "instwebaddr": {
+                    "$id": "/properties/data/properties/items/items/properties/instwebaddr",
+                    "type": "string",
+                    "title": "The Instwebaddr Schema"
+                  },
+                  "namehcr": {
+                    "$id": "/properties/data/properties/items/items/properties/namehcr",
+                    "type": "string",
+                    "title": "The Namehcr Schema"
+                  },
+                  "score": {
+                    "$id": "/properties/data/properties/items/items/properties/score",
+                    "type": "integer",
+                    "title": "The Score Schema"
+                  },
+                  "id": {
+                    "$id": "/properties/data/properties/items/items/properties/id",
+                    "type": "string",
+                    "title": "The Id Schema"
+                  },
+                  "type": {
+                    "$id": "/properties/data/properties/items/items/properties/type",
+                    "type": "string",
+                    "title": "The Type Schema"
+                  },
+                  "links": {
+                    "$id": "/properties/data/properties/items/items/properties/links",
+                    "type": "object",
+                    "properties": {
+                      "self": {
+                        "$id": "/properties/data/properties/items/items/properties/links/properties/self",
+                        "type": "string",
+                        "title": "The Self Schema"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "statistics_on_depository_institution": {
+      "type": "object",
+      "properties": {
+        "meta": {
+          "$id": "/properties/meta",
+          "type": "object",
+          "properties": {
+            "type": {
+              "$id": "/properties/meta/properties/type",
+              "type": "string",
+              "title": "The Type Schema"
+            },
+            "params": {
+              "$id": "/properties/meta/properties/params",
+              "type": "object",
+              "properties": {
+                "id": {
+                  "$id": "/properties/meta/properties/params/properties/id",
+                  "type": "string",
+                  "title": "The Id Schema"
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "$id": "/properties/links",
+          "type": "object",
+          "properties": {
+            "self": {
+              "$id": "/properties/links/properties/self",
+              "type": "string",
+              "title": "The Self Schema"
+            }
+          }
+        },
+        "data": {
+          "$id": "/properties/data",
+          "type": "object",
+          "properties": {
+            "cert": {
+              "$id": "/properties/data/properties/cert",
+              "type": "integer",
+              "title": "The Cert Schema"
+            },
+            "docket": {
+              "$id": "/properties/data/properties/docket",
+              "type": "integer",
+              "title": "The Docket Schema"
+            },
+            "fed_rssd": {
+              "$id": "/properties/data/properties/fed_rssd",
+              "type": "integer",
+              "title": "The Fed_rssd Schema"
+            },
+            "rssdhcr": {
+              "$id": "/properties/data/properties/rssdhcr",
+              "type": "integer",
+              "title": "The Rssdhcr Schema"
+            },
+            "name": {
+              "$id": "/properties/data/properties/name",
+              "type": "string",
+              "title": "The Name Schema"
+            },
+            "city": {
+              "$id": "/properties/data/properties/city",
+              "type": "string",
+              "title": "The City Schema"
+            },
+            "stalp": {
+              "$id": "/properties/data/properties/stalp",
+              "type": "string",
+              "title": "The Stalp Schema"
+            },
+            "zip": {
+              "$id": "/properties/data/properties/zip",
+              "type": "integer",
+              "title": "The Zip Schema"
+            },
+            "repdte": {
+              "$id": "/properties/data/properties/repdte",
+              "type": "string",
+              "title": "The Repdte Schema"
+            },
+            "rundate": {
+              "$id": "/properties/data/properties/rundate",
+              "type": "string",
+              "title": "The Rundate Schema"
+            },
+            "bkclass": {
+              "$id": "/properties/data/properties/bkclass",
+              "type": "string",
+              "title": "The Bkclass Schema"
+            },
+            "address": {
+              "$id": "/properties/data/properties/address",
+              "type": "string",
+              "title": "The Address Schema"
+            },
+            "namehcr": {
+              "$id": "/properties/data/properties/namehcr",
+              "type": "string",
+              "title": "The Namehcr Schema"
+            },
+            "offdom": {
+              "$id": "/properties/data/properties/offdom",
+              "type": "integer",
+              "title": "The Offdom Schema"
+            },
+            "offfor": {
+              "$id": "/properties/data/properties/offfor",
+              "type": "integer",
+              "title": "The Offfor Schema"
+            },
+            "stmult": {
+              "$id": "/properties/data/properties/stmult",
+              "type": "integer",
+              "title": "The Stmult Schema"
+            },
+            "specgrp": {
+              "$id": "/properties/data/properties/specgrp",
+              "type": "integer",
+              "title": "The Specgrp Schema"
+            },
+            "subchaps": {
+              "$id": "/properties/data/properties/subchaps",
+              "type": "integer",
+              "title": "The Subchaps Schema"
+            },
+            "county": {
+              "$id": "/properties/data/properties/county",
+              "type": "string",
+              "title": "The County Schema"
+            },
+            "cbsa_metro": {
+              "$id": "/properties/data/properties/cbsa_metro",
+              "type": "string",
+              "title": "The Cbsa_metro Schema"
+            },
+            "cbsa_metro_name": {
+              "$id": "/properties/data/properties/cbsa_metro_name",
+              "type": "string",
+              "title": "The Cbsa_metro_name Schema"
+            },
+            "estymd": {
+              "$id": "/properties/data/properties/estymd",
+              "type": "string",
+              "title": "The Estymd Schema"
+            },
+            "insdate": {
+              "$id": "/properties/data/properties/insdate",
+              "type": "string",
+              "title": "The Insdate Schema"
+            },
+            "effdate": {
+              "$id": "/properties/data/properties/effdate",
+              "type": "string",
+              "title": "The Effdate Schema"
+            },
+            "mutual": {
+              "$id": "/properties/data/properties/mutual",
+              "type": "string",
+              "title": "The Mutual Schema"
+            },
+            "parcert": {
+              "$id": "/properties/data/properties/parcert",
+              "type": "integer",
+              "title": "The Parcert Schema"
+            },
+            "trust": {
+              "$id": "/properties/data/properties/trust",
+              "type": "integer",
+              "title": "The Trust Schema"
+            },
+            "regagnt": {
+              "$id": "/properties/data/properties/regagnt",
+              "type": "string",
+              "title": "The Regagnt Schema"
+            },
+            "insagnt1": {
+              "$id": "/properties/data/properties/insagnt1",
+              "type": "string",
+              "title": "The Insagnt1 Schema"
+            },
+            "fdicdbs": {
+              "$id": "/properties/data/properties/fdicdbs",
+              "type": "string",
+              "title": "The Fdicdbs Schema"
+            },
+            "fdicsupv": {
+              "$id": "/properties/data/properties/fdicsupv",
+              "type": "string",
+              "title": "The Fdicsupv Schema"
+            },
+            "fldoff": {
+              "$id": "/properties/data/properties/fldoff",
+              "type": "string",
+              "title": "The Fldoff Schema"
+            },
+            "fed": {
+              "$id": "/properties/data/properties/fed",
+              "type": "string",
+              "title": "The Fed Schema"
+            },
+            "occdist": {
+              "$id": "/properties/data/properties/occdist",
+              "type": "string",
+              "title": "The Occdist Schema"
+            },
+            "otsregnm": {
+              "$id": "/properties/data/properties/otsregnm",
+              "type": "string",
+              "title": "The Otsregnm Schema"
+            },
+            "offoa": {
+              "$id": "/properties/data/properties/offoa",
+              "type": "integer",
+              "title": "The Offoa Schema"
+            },
+            "cb": {
+              "$id": "/properties/data/properties/cb",
+              "type": "integer",
+              "title": "The Cb Schema"
+            },
+            "instwebaddr": {
+              "$id": "/properties/data/properties/instwebaddr",
+              "type": "string",
+              "title": "The Instwebaddr Schema"
+            },
+            "trpower": {
+              "$id": "/properties/data/properties/trpower",
+              "type": "integer",
+              "title": "The Trpower Schema"
+            },
+            "trexer": {
+              "$id": "/properties/data/properties/trexer",
+              "type": "integer",
+              "title": "The Trexer Schema"
+            },
+            "tract": {
+              "$id": "/properties/data/properties/tract",
+              "type": "integer",
+              "title": "The Tract Schema"
+            },
+            "idfranum": {
+              "$id": "/properties/data/properties/idfranum",
+              "type": "integer",
+              "title": "The Idfranum Schema"
+            },
+            "ttnanum": {
+              "$id": "/properties/data/properties/ttnanum",
+              "type": "integer",
+              "title": "The Ttnanum Schema"
+            },
+            "ttnmnum": {
+              "$id": "/properties/data/properties/ttnmnum",
+              "type": "integer",
+              "title": "The Ttnmnum Schema"
+            },
+            "idtfra": {
+              "$id": "/properties/data/properties/idtfra",
+              "type": "integer",
+              "title": "The Idtfra Schema"
+            },
+            "ttma": {
+              "$id": "/properties/data/properties/ttma",
+              "type": "integer",
+              "title": "The Ttma Schema"
+            },
+            "ttnma": {
+              "$id": "/properties/data/properties/ttnma",
+              "type": "integer",
+              "title": "The Ttnma Schema"
+            },
+            "ifiduc": {
+              "$id": "/properties/data/properties/ifiduc",
+              "type": "integer",
+              "title": "The Ifiduc Schema"
+            },
+            "reportdate": {
+              "$id": "/properties/data/properties/reportdate",
+              "type": "string",
+              "title": "The Reportdate Schema"
+            },
+            "nareres": {
+              "$id": "/properties/data/properties/nareres",
+              "type": "integer",
+              "title": "The Nareres Schema"
+            },
+            "narersfm": {
+              "$id": "/properties/data/properties/narersfm",
+              "type": "integer",
+              "title": "The Narersfm Schema"
+            },
+            "narersf2": {
+              "$id": "/properties/data/properties/narersf2",
+              "type": "integer",
+              "title": "The Narersf2 Schema"
+            },
+            "nareloc": {
+              "$id": "/properties/data/properties/nareloc",
+              "type": "integer",
+              "title": "The Nareloc Schema"
+            },
+            "tcapao": {
+              "$id": "/properties/data/properties/tcapao",
+              "type": "string",
+              "title": "The Tcapao Schema"
+            },
+            "tcapaod": {
+              "$id": "/properties/data/properties/tcapaod",
+              "type": "string",
+              "title": "The Tcapaod Schema"
+            },
+            "tcanum": {
+              "$id": "/properties/data/properties/tcanum",
+              "type": "string",
+              "title": "The Tcanum Schema"
+            },
+            "tcanumd": {
+              "$id": "/properties/data/properties/tcanumd",
+              "type": "string",
+              "title": "The Tcanumd Schema"
+            },
+            "tcatnum": {
+              "$id": "/properties/data/properties/tcatnum",
+              "type": "string",
+              "title": "The Tcatnum Schema"
+            },
+            "ttotmagl": {
+              "$id": "/properties/data/properties/ttotmagl",
+              "type": "string",
+              "title": "The Ttotmagl Schema"
+            },
+            "tpmagl": {
+              "$id": "/properties/data/properties/tpmagl",
+              "type": "string",
+              "title": "The Tpmagl Schema"
+            },
+            "trtmagl": {
+              "$id": "/properties/data/properties/trtmagl",
+              "type": "string",
+              "title": "The Trtmagl Schema"
+            },
+            "timmagl": {
+              "$id": "/properties/data/properties/timmagl",
+              "type": "string",
+              "title": "The Timmagl Schema"
+            },
+            "tofmagl": {
+              "$id": "/properties/data/properties/tofmagl",
+              "type": "string",
+              "title": "The Tofmagl Schema"
+            },
+            "ttotnmgl": {
+              "$id": "/properties/data/properties/ttotnmgl",
+              "type": "string",
+              "title": "The Ttotnmgl Schema"
+            },
+            "tpnmgl": {
+              "$id": "/properties/data/properties/tpnmgl",
+              "type": "string",
+              "title": "The Tpnmgl Schema"
+            },
+            "trtnmgl": {
+              "$id": "/properties/data/properties/trtnmgl",
+              "type": "string",
+              "title": "The Trtnmgl Schema"
+            },
+            "timnmgl": {
+              "$id": "/properties/data/properties/timnmgl",
+              "type": "string",
+              "title": "The Timnmgl Schema"
+            },
+            "tofnmagl": {
+              "$id": "/properties/data/properties/tofnmagl",
+              "type": "string",
+              "title": "The Tofnmagl Schema"
+            },
+            "ttotrec": {
+              "$id": "/properties/data/properties/ttotrec",
+              "type": "string",
+              "title": "The Ttotrec Schema"
+            },
+            "tptrec": {
+              "$id": "/properties/data/properties/tptrec",
+              "type": "string",
+              "title": "The Tptrec Schema"
+            },
+            "trtrec": {
+              "$id": "/properties/data/properties/trtrec",
+              "type": "string",
+              "title": "The Trtrec Schema"
+            },
+            "timrec": {
+              "$id": "/properties/data/properties/timrec",
+              "type": "string",
+              "title": "The Timrec Schema"
+            },
+            "tofrec": {
+              "$id": "/properties/data/properties/tofrec",
+              "type": "string",
+              "title": "The Tofrec Schema"
+            },
+            "eqcprev": {
+              "$id": "/properties/data/properties/eqcprev",
+              "type": "integer",
+              "title": "The Eqcprev Schema"
+            },
+            "eqcrest": {
+              "$id": "/properties/data/properties/eqcrest",
+              "type": "integer",
+              "title": "The Eqcrest Schema"
+            },
+            "netinc": {
+              "$id": "/properties/data/properties/netinc",
+              "type": "integer",
+              "title": "The Netinc Schema"
+            },
+            "eqcstkrx": {
+              "$id": "/properties/data/properties/eqcstkrx",
+              "type": "integer",
+              "title": "The Eqcstkrx Schema"
+            },
+            "eqctrstx": {
+              "$id": "/properties/data/properties/eqctrstx",
+              "type": "integer",
+              "title": "The Eqctrstx Schema"
+            },
+            "eqcmrg": {
+              "$id": "/properties/data/properties/eqcmrg",
+              "type": "integer",
+              "title": "The Eqcmrg Schema"
+            },
+            "eqcdivp": {
+              "$id": "/properties/data/properties/eqcdivp",
+              "type": "integer",
+              "title": "The Eqcdivp Schema"
+            },
+            "eqcdivc": {
+              "$id": "/properties/data/properties/eqcdivc",
+              "type": "integer",
+              "title": "The Eqcdivc Schema"
+            },
+            "eqccompi": {
+              "$id": "/properties/data/properties/eqccompi",
+              "type": "integer",
+              "title": "The Eqccompi Schema"
+            },
+            "eqcbhctr": {
+              "$id": "/properties/data/properties/eqcbhctr",
+              "type": "integer",
+              "title": "The Eqcbhctr Schema"
+            },
+            "eq": {
+              "$id": "/properties/data/properties/eq",
+              "type": "integer",
+              "title": "The Eq Schema"
+            },
+            "intinc": {
+              "$id": "/properties/data/properties/intinc",
+              "type": "integer",
+              "title": "The Intinc Schema"
+            },
+            "ilndom": {
+              "$id": "/properties/data/properties/ilndom",
+              "type": "integer",
+              "title": "The Ilndom Schema"
+            },
+            "ilnfor": {
+              "$id": "/properties/data/properties/ilnfor",
+              "type": "string",
+              "title": "The Ilnfor Schema"
+            },
+            "ils": {
+              "$id": "/properties/data/properties/ils",
+              "type": "integer",
+              "title": "The Ils Schema"
+            },
+            "ichbal": {
+              "$id": "/properties/data/properties/ichbal",
+              "type": "integer",
+              "title": "The Ichbal Schema"
+            },
+            "isc": {
+              "$id": "/properties/data/properties/isc",
+              "type": "integer",
+              "title": "The Isc Schema"
+            },
+            "itrade": {
+              "$id": "/properties/data/properties/itrade",
+              "type": "integer",
+              "title": "The Itrade Schema"
+            },
+            "ifrepo": {
+              "$id": "/properties/data/properties/ifrepo",
+              "type": "integer",
+              "title": "The Ifrepo Schema"
+            },
+            "iothii": {
+              "$id": "/properties/data/properties/iothii",
+              "type": "integer",
+              "title": "The Iothii Schema"
+            },
+            "dep": {
+              "$id": "/properties/data/properties/dep",
+              "type": "integer",
+              "title": "The Dep Schema"
+            },
+            "depdom": {
+              "$id": "/properties/data/properties/depdom",
+              "type": "integer",
+              "title": "The Depdom Schema"
+            },
+            "idtrni": {
+              "$id": "/properties/data/properties/idtrni",
+              "type": "integer",
+              "title": "The Idtrni Schema"
+            },
+            "idtrngov": {
+              "$id": "/properties/data/properties/idtrngov",
+              "type": "integer",
+              "title": "The Idtrngov Schema"
+            },
+            "idtrnmu": {
+              "$id": "/properties/data/properties/idtrnmu",
+              "type": "integer",
+              "title": "The Idtrnmu Schema"
+            },
+            "idtrcomb": {
+              "$id": "/properties/data/properties/idtrcomb",
+              "type": "integer",
+              "title": "The Idtrcomb Schema"
+            },
+            "idtrnfc": {
+              "$id": "/properties/data/properties/idtrnfc",
+              "type": "integer",
+              "title": "The Idtrnfc Schema"
+            },
+            "idtrnfg": {
+              "$id": "/properties/data/properties/idtrnfg",
+              "type": "integer",
+              "title": "The Idtrnfg Schema"
+            },
+            "depfor": {
+              "$id": "/properties/data/properties/depfor",
+              "type": "string",
+              "title": "The Depfor Schema"
+            },
+            "trn": {
+              "$id": "/properties/data/properties/trn",
+              "type": "integer",
+              "title": "The Trn Schema"
+            },
+            "ddt": {
+              "$id": "/properties/data/properties/ddt",
+              "type": "integer",
+              "title": "The Ddt Schema"
+            },
+            "ntr": {
+              "$id": "/properties/data/properties/ntr",
+              "type": "integer",
+              "title": "The Ntr Schema"
+            },
+            "ntrsmmda": {
+              "$id": "/properties/data/properties/ntrsmmda",
+              "type": "integer",
+              "title": "The Ntrsmmda Schema"
+            },
+            "ntrsoth": {
+              "$id": "/properties/data/properties/ntrsoth",
+              "type": "integer",
+              "title": "The Ntrsoth Schema"
+            },
+            "ntrtime": {
+              "$id": "/properties/data/properties/ntrtime",
+              "type": "integer",
+              "title": "The Ntrtime Schema"
+            },
+            "ts": {
+              "$id": "/properties/data/properties/ts",
+              "type": "integer",
+              "title": "The Ts Schema"
+            },
+            "depnidom": {
+              "$id": "/properties/data/properties/depnidom",
+              "type": "integer",
+              "title": "The Depnidom Schema"
+            },
+            "depidom": {
+              "$id": "/properties/data/properties/depidom",
+              "type": "integer",
+              "title": "The Depidom Schema"
+            },
+            "coredep": {
+              "$id": "/properties/data/properties/coredep",
+              "type": "integer",
+              "title": "The Coredep Schema"
+            },
+            "depins": {
+              "$id": "/properties/data/properties/depins",
+              "type": "integer",
+              "title": "The Depins Schema"
+            },
+            "irakeogh": {
+              "$id": "/properties/data/properties/irakeogh",
+              "type": "integer",
+              "title": "The Irakeogh Schema"
+            },
+            "bro": {
+              "$id": "/properties/data/properties/bro",
+              "type": "integer",
+              "title": "The Bro Schema"
+            },
+            "broins": {
+              "$id": "/properties/data/properties/broins",
+              "type": "integer",
+              "title": "The Broins Schema"
+            },
+            "deplsnb": {
+              "$id": "/properties/data/properties/deplsnb",
+              "type": "integer",
+              "title": "The Deplsnb Schema"
+            },
+            "depnifor": {
+              "$id": "/properties/data/properties/depnifor",
+              "type": "string",
+              "title": "The Depnifor Schema"
+            },
+            "depifor": {
+              "$id": "/properties/data/properties/depifor",
+              "type": "string",
+              "title": "The Depifor Schema"
+            },
+            "webaddr": {
+              "$id": "/properties/data/properties/webaddr",
+              "type": "string",
+              "title": "The Webaddr Schema"
+            },
+            "numemp": {
+              "$id": "/properties/data/properties/numemp",
+              "type": "integer",
+              "title": "The Numemp Schema"
+            },
+            "asset": {
+              "$id": "/properties/data/properties/asset",
+              "type": "integer",
+              "title": "The Asset Schema"
+            },
+            "chbal": {
+              "$id": "/properties/data/properties/chbal",
+              "type": "integer",
+              "title": "The Chbal Schema"
+            },
+            "chbali": {
+              "$id": "/properties/data/properties/chbali",
+              "type": "integer",
+              "title": "The Chbali Schema"
+            },
+            "sc": {
+              "$id": "/properties/data/properties/sc",
+              "type": "integer",
+              "title": "The Sc Schema"
+            },
+            "frepo": {
+              "$id": "/properties/data/properties/frepo",
+              "type": "integer",
+              "title": "The Frepo Schema"
+            },
+            "lnlsnet": {
+              "$id": "/properties/data/properties/lnlsnet",
+              "type": "integer",
+              "title": "The Lnlsnet Schema"
+            },
+            "lnatres": {
+              "$id": "/properties/data/properties/lnatres",
+              "type": "integer",
+              "title": "The Lnatres Schema"
+            },
+            "trade": {
+              "$id": "/properties/data/properties/trade",
+              "type": "integer",
+              "title": "The Trade Schema"
+            },
+            "bkprem": {
+              "$id": "/properties/data/properties/bkprem",
+              "type": "integer",
+              "title": "The Bkprem Schema"
+            },
+            "ore": {
+              "$id": "/properties/data/properties/ore",
+              "type": "integer",
+              "title": "The Ore Schema"
+            },
+            "intan": {
+              "$id": "/properties/data/properties/intan",
+              "type": "integer",
+              "title": "The Intan Schema"
+            },
+            "idoa": {
+              "$id": "/properties/data/properties/idoa",
+              "type": "integer",
+              "title": "The Idoa Schema"
+            },
+            "liabeq": {
+              "$id": "/properties/data/properties/liabeq",
+              "type": "integer",
+              "title": "The Liabeq Schema"
+            },
+            "liab": {
+              "$id": "/properties/data/properties/liab",
+              "type": "integer",
+              "title": "The Liab Schema"
+            },
+            "depi": {
+              "$id": "/properties/data/properties/depi",
+              "type": "integer",
+              "title": "The Depi Schema"
+            },
+            "iddepinr": {
+              "$id": "/properties/data/properties/iddepinr",
+              "type": "number",
+              "title": "The Iddepinr Schema"
+            },
+            "frepp": {
+              "$id": "/properties/data/properties/frepp",
+              "type": "integer",
+              "title": "The Frepp Schema"
+            },
+            "tradel": {
+              "$id": "/properties/data/properties/tradel",
+              "type": "integer",
+              "title": "The Tradel Schema"
+            },
+            "idobrmtg": {
+              "$id": "/properties/data/properties/idobrmtg",
+              "type": "integer",
+              "title": "The Idobrmtg Schema"
+            },
+            "subnd": {
+              "$id": "/properties/data/properties/subnd",
+              "type": "integer",
+              "title": "The Subnd Schema"
+            },
+            "idoliab": {
+              "$id": "/properties/data/properties/idoliab",
+              "type": "integer",
+              "title": "The Idoliab Schema"
+            },
+            "eqtot": {
+              "$id": "/properties/data/properties/eqtot",
+              "type": "integer",
+              "title": "The Eqtot Schema"
+            },
+            "eqpp": {
+              "$id": "/properties/data/properties/eqpp",
+              "type": "integer",
+              "title": "The Eqpp Schema"
+            },
+            "eqcs": {
+              "$id": "/properties/data/properties/eqcs",
+              "type": "integer",
+              "title": "The Eqcs Schema"
+            },
+            "eqsur": {
+              "$id": "/properties/data/properties/eqsur",
+              "type": "integer",
+              "title": "The Eqsur Schema"
+            },
+            "equptot": {
+              "$id": "/properties/data/properties/equptot",
+              "type": "integer",
+              "title": "The Equptot Schema"
+            },
+            "eqconsub": {
+              "$id": "/properties/data/properties/eqconsub",
+              "type": "integer",
+              "title": "The Eqconsub Schema"
+            },
+            "nclnls": {
+              "$id": "/properties/data/properties/nclnls",
+              "type": "integer",
+              "title": "The Nclnls Schema"
+            },
+            "ncgtypar": {
+              "$id": "/properties/data/properties/ncgtypar",
+              "type": "integer",
+              "title": "The Ncgtypar Schema"
+            },
+            "oaienc": {
+              "$id": "/properties/data/properties/oaienc",
+              "type": "integer",
+              "title": "The Oaienc Schema"
+            },
+            "ernast": {
+              "$id": "/properties/data/properties/ernast",
+              "type": "integer",
+              "title": "The Ernast Schema"
+            },
+            "asstlt": {
+              "$id": "/properties/data/properties/asstlt",
+              "type": "integer",
+              "title": "The Asstlt Schema"
+            },
+            "asset5": {
+              "$id": "/properties/data/properties/asset5",
+              "type": "number",
+              "title": "The Asset5 Schema"
+            },
+            "asset2": {
+              "$id": "/properties/data/properties/asset2",
+              "type": "number",
+              "title": "The Asset2 Schema"
+            },
+            "rwajt": {
+              "$id": "/properties/data/properties/rwajt",
+              "type": "integer",
+              "title": "The Rwajt Schema"
+            },
+            "avassetj": {
+              "$id": "/properties/data/properties/avassetj",
+              "type": "integer",
+              "title": "The Avassetj Schema"
+            },
+            "oalifins": {
+              "$id": "/properties/data/properties/oalifins",
+              "type": "integer",
+              "title": "The Oalifins Schema"
+            },
+            "oalifgen": {
+              "$id": "/properties/data/properties/oalifgen",
+              "type": "integer",
+              "title": "The Oalifgen Schema"
+            },
+            "oalifsep": {
+              "$id": "/properties/data/properties/oalifsep",
+              "type": "integer",
+              "title": "The Oalifsep Schema"
+            },
+            "oalifhyb": {
+              "$id": "/properties/data/properties/oalifhyb",
+              "type": "integer",
+              "title": "The Oalifhyb Schema"
+            },
+            "voliab": {
+              "$id": "/properties/data/properties/voliab",
+              "type": "integer",
+              "title": "The Voliab Schema"
+            },
+            "lnexamt": {
+              "$id": "/properties/data/properties/lnexamt",
+              "type": "integer",
+              "title": "The Lnexamt Schema"
+            },
+            "othbfhlb": {
+              "$id": "/properties/data/properties/othbfhlb",
+              "type": "integer",
+              "title": "The Othbfhlb Schema"
+            },
+            "lnlssale": {
+              "$id": "/properties/data/properties/lnlssale",
+              "type": "integer",
+              "title": "The Lnlssale Schema"
+            },
+            "ucln": {
+              "$id": "/properties/data/properties/ucln",
+              "type": "integer",
+              "title": "The Ucln Schema"
+            },
+            "rbct1j": {
+              "$id": "/properties/data/properties/rbct1j",
+              "type": "integer",
+              "title": "The Rbct1j Schema"
+            },
+            "rbct2": {
+              "$id": "/properties/data/properties/rbct2",
+              "type": "integer",
+              "title": "The Rbct2 Schema"
+            },
+            "uc": {
+              "$id": "/properties/data/properties/uc",
+              "type": "integer",
+              "title": "The Uc Schema"
+            },
+            "obsdir": {
+              "$id": "/properties/data/properties/obsdir",
+              "type": "integer",
+              "title": "The Obsdir Schema"
+            },
+            "lsalnls": {
+              "$id": "/properties/data/properties/lsalnls",
+              "type": "integer",
+              "title": "The Lsalnls Schema"
+            },
+            "lrecons": {
+              "$id": "/properties/data/properties/lrecons",
+              "type": "integer",
+              "title": "The Lrecons Schema"
+            },
+            "lreag": {
+              "$id": "/properties/data/properties/lreag",
+              "type": "integer",
+              "title": "The Lreag Schema"
+            },
+            "lreres": {
+              "$id": "/properties/data/properties/lreres",
+              "type": "integer",
+              "title": "The Lreres Schema"
+            },
+            "lremult": {
+              "$id": "/properties/data/properties/lremult",
+              "type": "integer",
+              "title": "The Lremult Schema"
+            },
+            "lrenres": {
+              "$id": "/properties/data/properties/lrenres",
+              "type": "integer",
+              "title": "The Lrenres Schema"
+            },
+            "lci": {
+              "$id": "/properties/data/properties/lci",
+              "type": "integer",
+              "title": "The Lci Schema"
+            },
+            "lcon": {
+              "$id": "/properties/data/properties/lcon",
+              "type": "integer",
+              "title": "The Lcon Schema"
+            },
+            "lag": {
+              "$id": "/properties/data/properties/lag",
+              "type": "string",
+              "title": "The Lag Schema"
+            },
+            "loth": {
+              "$id": "/properties/data/properties/loth",
+              "type": "integer",
+              "title": "The Loth Schema"
+            },
+            "lsaore": {
+              "$id": "/properties/data/properties/lsaore",
+              "type": "integer",
+              "title": "The Lsaore Schema"
+            },
+            "loregty": {
+              "$id": "/properties/data/properties/loregty",
+              "type": "integer",
+              "title": "The Loregty Schema"
+            },
+            "lsascdbt": {
+              "$id": "/properties/data/properties/lsascdbt",
+              "type": "integer",
+              "title": "The Lsascdbt Schema"
+            },
+            "lsaoa": {
+              "$id": "/properties/data/properties/lsaoa",
+              "type": "integer",
+              "title": "The Lsaoa Schema"
+            },
+            "p3ltot": {
+              "$id": "/properties/data/properties/p3ltot",
+              "type": "integer",
+              "title": "The P3ltot Schema"
+            },
+            "p3lrecon": {
+              "$id": "/properties/data/properties/p3lrecon",
+              "type": "integer",
+              "title": "The P3lrecon Schema"
+            },
+            "p3lreag": {
+              "$id": "/properties/data/properties/p3lreag",
+              "type": "integer",
+              "title": "The P3lreag Schema"
+            },
+            "p3lreres": {
+              "$id": "/properties/data/properties/p3lreres",
+              "type": "integer",
+              "title": "The P3lreres Schema"
+            },
+            "p3lremul": {
+              "$id": "/properties/data/properties/p3lremul",
+              "type": "integer",
+              "title": "The P3lremul Schema"
+            },
+            "p3lrenrs": {
+              "$id": "/properties/data/properties/p3lrenrs",
+              "type": "integer",
+              "title": "The P3lrenrs Schema"
+            },
+            "p3lci": {
+              "$id": "/properties/data/properties/p3lci",
+              "type": "integer",
+              "title": "The P3lci Schema"
+            },
+            "p3lcon": {
+              "$id": "/properties/data/properties/p3lcon",
+              "type": "integer",
+              "title": "The P3lcon Schema"
+            },
+            "p3lag": {
+              "$id": "/properties/data/properties/p3lag",
+              "type": "string",
+              "title": "The P3lag Schema"
+            },
+            "p3loth": {
+              "$id": "/properties/data/properties/p3loth",
+              "type": "integer",
+              "title": "The P3loth Schema"
+            },
+            "p3lgty": {
+              "$id": "/properties/data/properties/p3lgty",
+              "type": "integer",
+              "title": "The P3lgty Schema"
+            },
+            "p9ltot": {
+              "$id": "/properties/data/properties/p9ltot",
+              "type": "integer",
+              "title": "The P9ltot Schema"
+            },
+            "p9lrecon": {
+              "$id": "/properties/data/properties/p9lrecon",
+              "type": "integer",
+              "title": "The P9lrecon Schema"
+            },
+            "p9lreag": {
+              "$id": "/properties/data/properties/p9lreag",
+              "type": "integer",
+              "title": "The P9lreag Schema"
+            },
+            "p9lreres": {
+              "$id": "/properties/data/properties/p9lreres",
+              "type": "integer",
+              "title": "The P9lreres Schema"
+            },
+            "p9lremul": {
+              "$id": "/properties/data/properties/p9lremul",
+              "type": "integer",
+              "title": "The P9lremul Schema"
+            },
+            "p9lrenrs": {
+              "$id": "/properties/data/properties/p9lrenrs",
+              "type": "integer",
+              "title": "The P9lrenrs Schema"
+            },
+            "p9lci": {
+              "$id": "/properties/data/properties/p9lci",
+              "type": "integer",
+              "title": "The P9lci Schema"
+            },
+            "p9lcon": {
+              "$id": "/properties/data/properties/p9lcon",
+              "type": "integer",
+              "title": "The P9lcon Schema"
+            },
+            "p9lag": {
+              "$id": "/properties/data/properties/p9lag",
+              "type": "string",
+              "title": "The P9lag Schema"
+            },
+            "p9loth": {
+              "$id": "/properties/data/properties/p9loth",
+              "type": "integer",
+              "title": "The P9loth Schema"
+            },
+            "p9lgty": {
+              "$id": "/properties/data/properties/p9lgty",
+              "type": "integer",
+              "title": "The P9lgty Schema"
+            },
+            "naltot": {
+              "$id": "/properties/data/properties/naltot",
+              "type": "integer",
+              "title": "The Naltot Schema"
+            },
+            "nalrecon": {
+              "$id": "/properties/data/properties/nalrecon",
+              "type": "integer",
+              "title": "The Nalrecon Schema"
+            },
+            "nalreag": {
+              "$id": "/properties/data/properties/nalreag",
+              "type": "integer",
+              "title": "The Nalreag Schema"
+            },
+            "nalreres": {
+              "$id": "/properties/data/properties/nalreres",
+              "type": "integer",
+              "title": "The Nalreres Schema"
+            },
+            "nalremul": {
+              "$id": "/properties/data/properties/nalremul",
+              "type": "integer",
+              "title": "The Nalremul Schema"
+            },
+            "nalrenrs": {
+              "$id": "/properties/data/properties/nalrenrs",
+              "type": "integer",
+              "title": "The Nalrenrs Schema"
+            },
+            "nalci": {
+              "$id": "/properties/data/properties/nalci",
+              "type": "integer",
+              "title": "The Nalci Schema"
+            },
+            "nalcon": {
+              "$id": "/properties/data/properties/nalcon",
+              "type": "integer",
+              "title": "The Nalcon Schema"
+            },
+            "nalag": {
+              "$id": "/properties/data/properties/nalag",
+              "type": "string",
+              "title": "The Nalag Schema"
+            },
+            "naloth": {
+              "$id": "/properties/data/properties/naloth",
+              "type": "integer",
+              "title": "The Naloth Schema"
+            },
+            "nalgty": {
+              "$id": "/properties/data/properties/nalgty",
+              "type": "integer",
+              "title": "The Nalgty Schema"
+            },
+            "lnreres": {
+              "$id": "/properties/data/properties/lnreres",
+              "type": "integer",
+              "title": "The Lnreres Schema"
+            },
+            "lnrersfm": {
+              "$id": "/properties/data/properties/lnrersfm",
+              "type": "integer",
+              "title": "The Lnrersfm Schema"
+            },
+            "lnrersf2": {
+              "$id": "/properties/data/properties/lnrersf2",
+              "type": "integer",
+              "title": "The Lnrersf2 Schema"
+            },
+            "lnreloc": {
+              "$id": "/properties/data/properties/lnreloc",
+              "type": "integer",
+              "title": "The Lnreloc Schema"
+            },
+            "lnrersf1": {
+              "$id": "/properties/data/properties/lnrersf1",
+              "type": "integer",
+              "title": "The Lnrersf1 Schema"
+            },
+            "ntlnlsr": {
+              "$id": "/properties/data/properties/ntlnlsr",
+              "type": "number",
+              "title": "The Ntlnlsr Schema"
+            },
+            "ntrer": {
+              "$id": "/properties/data/properties/ntrer",
+              "type": "number",
+              "title": "The Ntrer Schema"
+            },
+            "ntrecosr": {
+              "$id": "/properties/data/properties/ntrecosr",
+              "type": "number",
+              "title": "The Ntrecosr Schema"
+            },
+            "ntrenrsr": {
+              "$id": "/properties/data/properties/ntrenrsr",
+              "type": "integer",
+              "title": "The Ntrenrsr Schema"
+            },
+            "ntremulr": {
+              "$id": "/properties/data/properties/ntremulr",
+              "type": "integer",
+              "title": "The Ntremulr Schema"
+            },
+            "ntreresr": {
+              "$id": "/properties/data/properties/ntreresr",
+              "type": "number",
+              "title": "The Ntreresr Schema"
+            },
+            "ntrelocr": {
+              "$id": "/properties/data/properties/ntrelocr",
+              "type": "integer",
+              "title": "The Ntrelocr Schema"
+            },
+            "ntreothr": {
+              "$id": "/properties/data/properties/ntreothr",
+              "type": "number",
+              "title": "The Ntreothr Schema"
+            },
+            "idntcir": {
+              "$id": "/properties/data/properties/idntcir",
+              "type": "number",
+              "title": "The Idntcir Schema"
+            },
+            "idntconr": {
+              "$id": "/properties/data/properties/idntconr",
+              "type": "number",
+              "title": "The Idntconr Schema"
+            },
+            "idntcrdr": {
+              "$id": "/properties/data/properties/idntcrdr",
+              "type": "string",
+              "title": "The Idntcrdr Schema"
+            },
+            "idntcoor": {
+              "$id": "/properties/data/properties/idntcoor",
+              "type": "number",
+              "title": "The Idntcoor Schema"
+            },
+            "idntator": {
+              "$id": "/properties/data/properties/idntator",
+              "type": "integer",
+              "title": "The Idntator Schema"
+            },
+            "idntcotr": {
+              "$id": "/properties/data/properties/idntcotr",
+              "type": "number",
+              "title": "The Idntcotr Schema"
+            },
+            "idntothr": {
+              "$id": "/properties/data/properties/idntothr",
+              "type": "number",
+              "title": "The Idntothr Schema"
+            },
+            "ntcomrer": {
+              "$id": "/properties/data/properties/ntcomrer",
+              "type": "string",
+              "title": "The Ntcomrer Schema"
+            },
+            "assetfor": {
+              "$id": "/properties/data/properties/assetfor",
+              "type": "string",
+              "title": "The Assetfor Schema"
+            },
+            "chbalfor": {
+              "$id": "/properties/data/properties/chbalfor",
+              "type": "string",
+              "title": "The Chbalfor Schema"
+            },
+            "repopurf": {
+              "$id": "/properties/data/properties/repopurf",
+              "type": "string",
+              "title": "The Repopurf Schema"
+            },
+            "lnlsgrf": {
+              "$id": "/properties/data/properties/lnlsgrf",
+              "type": "string",
+              "title": "The Lnlsgrf Schema"
+            },
+            "unincfor": {
+              "$id": "/properties/data/properties/unincfor",
+              "type": "string",
+              "title": "The Unincfor Schema"
+            },
+            "lnlsfor": {
+              "$id": "/properties/data/properties/lnlsfor",
+              "type": "string",
+              "title": "The Lnlsfor Schema"
+            },
+            "lnrefor": {
+              "$id": "/properties/data/properties/lnrefor",
+              "type": "string",
+              "title": "The Lnrefor Schema"
+            },
+            "idlndacf": {
+              "$id": "/properties/data/properties/idlndacf",
+              "type": "integer",
+              "title": "The Idlndacf Schema"
+            },
+            "lndepcbf": {
+              "$id": "/properties/data/properties/lndepcbf",
+              "type": "string",
+              "title": "The Lndepcbf Schema"
+            },
+            "lndepusf": {
+              "$id": "/properties/data/properties/lndepusf",
+              "type": "string",
+              "title": "The Lndepusf Schema"
+            },
+            "lndepfcf": {
+              "$id": "/properties/data/properties/lndepfcf",
+              "type": "string",
+              "title": "The Lndepfcf Schema"
+            },
+            "lnagfor": {
+              "$id": "/properties/data/properties/lnagfor",
+              "type": "string",
+              "title": "The Lnagfor Schema"
+            },
+            "lncifor": {
+              "$id": "/properties/data/properties/lncifor",
+              "type": "string",
+              "title": "The Lncifor Schema"
+            },
+            "lncinusf": {
+              "$id": "/properties/data/properties/lncinusf",
+              "type": "string",
+              "title": "The Lncinusf Schema"
+            },
+            "lnconfor": {
+              "$id": "/properties/data/properties/lnconfor",
+              "type": "string",
+              "title": "The Lnconfor Schema"
+            },
+            "lnfgfor": {
+              "$id": "/properties/data/properties/lnfgfor",
+              "type": "string",
+              "title": "The Lnfgfor Schema"
+            },
+            "lnmunif": {
+              "$id": "/properties/data/properties/lnmunif",
+              "type": "string",
+              "title": "The Lnmunif Schema"
+            },
+            "lnotherf": {
+              "$id": "/properties/data/properties/lnotherf",
+              "type": "string",
+              "title": "The Lnotherf Schema"
+            },
+            "lsfor": {
+              "$id": "/properties/data/properties/lsfor",
+              "type": "string",
+              "title": "The Lsfor Schema"
+            },
+            "trfor": {
+              "$id": "/properties/data/properties/trfor",
+              "type": "string",
+              "title": "The Trfor Schema"
+            },
+            "liabfor": {
+              "$id": "/properties/data/properties/liabfor",
+              "type": "string",
+              "title": "The Liabfor Schema"
+            },
+            "depipccf": {
+              "$id": "/properties/data/properties/depipccf",
+              "type": "string",
+              "title": "The Depipccf Schema"
+            },
+            "depusbkf": {
+              "$id": "/properties/data/properties/depusbkf",
+              "type": "string",
+              "title": "The Depusbkf Schema"
+            },
+            "depfbkf": {
+              "$id": "/properties/data/properties/depfbkf",
+              "type": "string",
+              "title": "The Depfbkf Schema"
+            },
+            "depfgovf": {
+              "$id": "/properties/data/properties/depfgovf",
+              "type": "string",
+              "title": "The Depfgovf Schema"
+            },
+            "depusmf": {
+              "$id": "/properties/data/properties/depusmf",
+              "type": "string",
+              "title": "The Depusmf Schema"
+            },
+            "reposldf": {
+              "$id": "/properties/data/properties/reposldf",
+              "type": "string",
+              "title": "The Reposldf Schema"
+            },
+            "othborf": {
+              "$id": "/properties/data/properties/othborf",
+              "type": "string",
+              "title": "The Othborf Schema"
+            },
+            "tpmanum": {
+              "$id": "/properties/data/properties/tpmanum",
+              "type": "integer",
+              "title": "The Tpmanum Schema"
+            },
+            "tecmanum": {
+              "$id": "/properties/data/properties/tecmanum",
+              "type": "integer",
+              "title": "The Tecmanum Schema"
+            },
+            "tebmanum": {
+              "$id": "/properties/data/properties/tebmanum",
+              "type": "integer",
+              "title": "The Tebmanum Schema"
+            },
+            "tormanum": {
+              "$id": "/properties/data/properties/tormanum",
+              "type": "integer",
+              "title": "The Tormanum Schema"
+            },
+            "tcamanum": {
+              "$id": "/properties/data/properties/tcamanum",
+              "type": "integer",
+              "title": "The Tcamanum Schema"
+            },
+            "timmanum": {
+              "$id": "/properties/data/properties/timmanum",
+              "type": "integer",
+              "title": "The Timmanum Schema"
+            },
+            "tfemanum": {
+              "$id": "/properties/data/properties/tfemanum",
+              "type": "integer",
+              "title": "The Tfemanum Schema"
+            },
+            "tofmanum": {
+              "$id": "/properties/data/properties/tofmanum",
+              "type": "integer",
+              "title": "The Tofmanum Schema"
+            },
+            "tmafnum": {
+              "$id": "/properties/data/properties/tmafnum",
+              "type": "string",
+              "title": "The Tmafnum Schema"
+            },
+            "trhmanum": {
+              "$id": "/properties/data/properties/trhmanum",
+              "type": "integer",
+              "title": "The Trhmanum Schema"
+            },
+            "tmasmfn": {
+              "$id": "/properties/data/properties/tmasmfn",
+              "type": "string",
+              "title": "The Tmasmfn Schema"
+            },
+            "tpnmnum": {
+              "$id": "/properties/data/properties/tpnmnum",
+              "type": "integer",
+              "title": "The Tpnmnum Schema"
+            },
+            "tecnmnum": {
+              "$id": "/properties/data/properties/tecnmnum",
+              "type": "integer",
+              "title": "The Tecnmnum Schema"
+            },
+            "tebnmnum": {
+              "$id": "/properties/data/properties/tebnmnum",
+              "type": "integer",
+              "title": "The Tebnmnum Schema"
+            },
+            "tornmnum": {
+              "$id": "/properties/data/properties/tornmnum",
+              "type": "integer",
+              "title": "The Tornmnum Schema"
+            },
+            "tcanmnum": {
+              "$id": "/properties/data/properties/tcanmnum",
+              "type": "integer",
+              "title": "The Tcanmnum Schema"
+            },
+            "timnmnum": {
+              "$id": "/properties/data/properties/timnmnum",
+              "type": "integer",
+              "title": "The Timnmnum Schema"
+            },
+            "tfenmnum": {
+              "$id": "/properties/data/properties/tfenmnum",
+              "type": "integer",
+              "title": "The Tfenmnum Schema"
+            },
+            "tofnmnum": {
+              "$id": "/properties/data/properties/tofnmnum",
+              "type": "integer",
+              "title": "The Tofnmnum Schema"
+            },
+            "tcsnmnum": {
+              "$id": "/properties/data/properties/tcsnmnum",
+              "type": "integer",
+              "title": "The Tcsnmnum Schema"
+            },
+            "tnmnumf": {
+              "$id": "/properties/data/properties/tnmnumf",
+              "type": "string",
+              "title": "The Tnmnumf Schema"
+            },
+            "trhnmnum": {
+              "$id": "/properties/data/properties/trhnmnum",
+              "type": "integer",
+              "title": "The Trhnmnum Schema"
+            },
+            "szucres": {
+              "$id": "/properties/data/properties/szucres",
+              "type": "integer",
+              "title": "The Szucres Schema"
+            },
+            "szuchel": {
+              "$id": "/properties/data/properties/szuchel",
+              "type": "integer",
+              "title": "The Szuchel Schema"
+            },
+            "szuccrcd": {
+              "$id": "/properties/data/properties/szuccrcd",
+              "type": "integer",
+              "title": "The Szuccrcd Schema"
+            },
+            "szucauto": {
+              "$id": "/properties/data/properties/szucauto",
+              "type": "integer",
+              "title": "The Szucauto Schema"
+            },
+            "szuccon": {
+              "$id": "/properties/data/properties/szuccon",
+              "type": "integer",
+              "title": "The Szuccon Schema"
+            },
+            "szucci": {
+              "$id": "/properties/data/properties/szucci",
+              "type": "integer",
+              "title": "The Szucci Schema"
+            },
+            "szucoth": {
+              "$id": "/properties/data/properties/szucoth",
+              "type": "integer",
+              "title": "The Szucoth Schema"
+            },
+            "ucszres": {
+              "$id": "/properties/data/properties/ucszres",
+              "type": "integer",
+              "title": "The Ucszres Schema"
+            },
+            "ucszhel": {
+              "$id": "/properties/data/properties/ucszhel",
+              "type": "integer",
+              "title": "The Ucszhel Schema"
+            },
+            "ucszcrcd": {
+              "$id": "/properties/data/properties/ucszcrcd",
+              "type": "integer",
+              "title": "The Ucszcrcd Schema"
+            },
+            "ucszauto": {
+              "$id": "/properties/data/properties/ucszauto",
+              "type": "integer",
+              "title": "The Ucszauto Schema"
+            },
+            "ucszcon": {
+              "$id": "/properties/data/properties/ucszcon",
+              "type": "integer",
+              "title": "The Ucszcon Schema"
+            },
+            "ucszci": {
+              "$id": "/properties/data/properties/ucszci",
+              "type": "integer",
+              "title": "The Ucszci Schema"
+            },
+            "ucszoth": {
+              "$id": "/properties/data/properties/ucszoth",
+              "type": "integer",
+              "title": "The Ucszoth Schema"
+            },
+            "eintexp": {
+              "$id": "/properties/data/properties/eintexp",
+              "type": "integer",
+              "title": "The Eintexp Schema"
+            },
+            "nim": {
+              "$id": "/properties/data/properties/nim",
+              "type": "integer",
+              "title": "The Nim Schema"
+            },
+            "elnatr": {
+              "$id": "/properties/data/properties/elnatr",
+              "type": "integer",
+              "title": "The Elnatr Schema"
+            },
+            "nonii": {
+              "$id": "/properties/data/properties/nonii",
+              "type": "integer",
+              "title": "The Nonii Schema"
+            },
+            "iserchg": {
+              "$id": "/properties/data/properties/iserchg",
+              "type": "integer",
+              "title": "The Iserchg Schema"
+            },
+            "igltrad": {
+              "$id": "/properties/data/properties/igltrad",
+              "type": "integer",
+              "title": "The Igltrad Schema"
+            },
+            "idothnii": {
+              "$id": "/properties/data/properties/idothnii",
+              "type": "integer",
+              "title": "The Idothnii Schema"
+            },
+            "nonix": {
+              "$id": "/properties/data/properties/nonix",
+              "type": "integer",
+              "title": "The Nonix Schema"
+            },
+            "esal": {
+              "$id": "/properties/data/properties/esal",
+              "type": "integer",
+              "title": "The Esal Schema"
+            },
+            "epremagg": {
+              "$id": "/properties/data/properties/epremagg",
+              "type": "integer",
+              "title": "The Epremagg Schema"
+            },
+            "ideoth": {
+              "$id": "/properties/data/properties/ideoth",
+              "type": "integer",
+              "title": "The Ideoth Schema"
+            },
+            "idpretx": {
+              "$id": "/properties/data/properties/idpretx",
+              "type": "integer",
+              "title": "The Idpretx Schema"
+            },
+            "iglsec": {
+              "$id": "/properties/data/properties/iglsec",
+              "type": "integer",
+              "title": "The Iglsec Schema"
+            },
+            "itax": {
+              "$id": "/properties/data/properties/itax",
+              "type": "integer",
+              "title": "The Itax Schema"
+            },
+            "ibefxtr": {
+              "$id": "/properties/data/properties/ibefxtr",
+              "type": "integer",
+              "title": "The Ibefxtr Schema"
+            },
+            "extra": {
+              "$id": "/properties/data/properties/extra",
+              "type": "integer",
+              "title": "The Extra Schema"
+            },
+            "netimin": {
+              "$id": "/properties/data/properties/netimin",
+              "type": "integer",
+              "title": "The Netimin Schema"
+            },
+            "netinbm": {
+              "$id": "/properties/data/properties/netinbm",
+              "type": "integer",
+              "title": "The Netinbm Schema"
+            },
+            "ntlnls": {
+              "$id": "/properties/data/properties/ntlnls",
+              "type": "integer",
+              "title": "The Ntlnls Schema"
+            },
+            "eqcdiv": {
+              "$id": "/properties/data/properties/eqcdiv",
+              "type": "integer",
+              "title": "The Eqcdiv Schema"
+            },
+            "noij": {
+              "$id": "/properties/data/properties/noij",
+              "type": "integer",
+              "title": "The Noij Schema"
+            },
+            "tctotnum": {
+              "$id": "/properties/data/properties/tctotnum",
+              "type": "string",
+              "title": "The Tctotnum Schema"
+            },
+            "tcdenum": {
+              "$id": "/properties/data/properties/tcdenum",
+              "type": "string",
+              "title": "The Tcdenum Schema"
+            },
+            "tcienum": {
+              "$id": "/properties/data/properties/tcienum",
+              "type": "string",
+              "title": "The Tcienum Schema"
+            },
+            "tcsbnum": {
+              "$id": "/properties/data/properties/tcsbnum",
+              "type": "string",
+              "title": "The Tcsbnum Schema"
+            },
+            "tctbnum": {
+              "$id": "/properties/data/properties/tctbnum",
+              "type": "string",
+              "title": "The Tctbnum Schema"
+            },
+            "tcmbnum": {
+              "$id": "/properties/data/properties/tcmbnum",
+              "type": "string",
+              "title": "The Tcmbnum Schema"
+            },
+            "tcstnum": {
+              "$id": "/properties/data/properties/tcstnum",
+              "type": "string",
+              "title": "The Tcstnum Schema"
+            },
+            "tcsonum": {
+              "$id": "/properties/data/properties/tcsonum",
+              "type": "string",
+              "title": "The Tcsonum Schema"
+            },
+            "tctotmv": {
+              "$id": "/properties/data/properties/tctotmv",
+              "type": "string",
+              "title": "The Tctotmv Schema"
+            },
+            "tcdemv": {
+              "$id": "/properties/data/properties/tcdemv",
+              "type": "string",
+              "title": "The Tcdemv Schema"
+            },
+            "tciemv": {
+              "$id": "/properties/data/properties/tciemv",
+              "type": "string",
+              "title": "The Tciemv Schema"
+            },
+            "tcsbmv": {
+              "$id": "/properties/data/properties/tcsbmv",
+              "type": "string",
+              "title": "The Tcsbmv Schema"
+            },
+            "tctbmv": {
+              "$id": "/properties/data/properties/tctbmv",
+              "type": "string",
+              "title": "The Tctbmv Schema"
+            },
+            "tcmbmv": {
+              "$id": "/properties/data/properties/tcmbmv",
+              "type": "string",
+              "title": "The Tcmbmv Schema"
+            },
+            "tcstmv": {
+              "$id": "/properties/data/properties/tcstmv",
+              "type": "string",
+              "title": "The Tcstmv Schema"
+            },
+            "tcsomv": {
+              "$id": "/properties/data/properties/tcsomv",
+              "type": "string",
+              "title": "The Tcsomv Schema"
+            },
+            "lnlsgr": {
+              "$id": "/properties/data/properties/lnlsgr",
+              "type": "integer",
+              "title": "The Lnlsgr Schema"
+            },
+            "lncontra": {
+              "$id": "/properties/data/properties/lncontra",
+              "type": "integer",
+              "title": "The Lncontra Schema"
+            },
+            "idlnls": {
+              "$id": "/properties/data/properties/idlnls",
+              "type": "integer",
+              "title": "The Idlnls Schema"
+            },
+            "lnre": {
+              "$id": "/properties/data/properties/lnre",
+              "type": "integer",
+              "title": "The Lnre Schema"
+            },
+            "lnredom": {
+              "$id": "/properties/data/properties/lnredom",
+              "type": "integer",
+              "title": "The Lnredom Schema"
+            },
+            "lnrecons": {
+              "$id": "/properties/data/properties/lnrecons",
+              "type": "integer",
+              "title": "The Lnrecons Schema"
+            },
+            "lnrenres": {
+              "$id": "/properties/data/properties/lnrenres",
+              "type": "integer",
+              "title": "The Lnrenres Schema"
+            },
+            "lnrenrow": {
+              "$id": "/properties/data/properties/lnrenrow",
+              "type": "integer",
+              "title": "The Lnrenrow Schema"
+            },
+            "lnrenrot": {
+              "$id": "/properties/data/properties/lnrenrot",
+              "type": "integer",
+              "title": "The Lnrenrot Schema"
+            },
+            "lnremult": {
+              "$id": "/properties/data/properties/lnremult",
+              "type": "integer",
+              "title": "The Lnremult Schema"
+            },
+            "lnreag": {
+              "$id": "/properties/data/properties/lnreag",
+              "type": "integer",
+              "title": "The Lnreag Schema"
+            },
+            "lnag": {
+              "$id": "/properties/data/properties/lnag",
+              "type": "integer",
+              "title": "The Lnag Schema"
+            },
+            "lnci": {
+              "$id": "/properties/data/properties/lnci",
+              "type": "integer",
+              "title": "The Lnci Schema"
+            },
+            "lncinus": {
+              "$id": "/properties/data/properties/lncinus",
+              "type": "integer",
+              "title": "The Lncinus Schema"
+            },
+            "lncon": {
+              "$id": "/properties/data/properties/lncon",
+              "type": "integer",
+              "title": "The Lncon Schema"
+            },
+            "lncrcd": {
+              "$id": "/properties/data/properties/lncrcd",
+              "type": "integer",
+              "title": "The Lncrcd Schema"
+            },
+            "lnconrp": {
+              "$id": "/properties/data/properties/lnconrp",
+              "type": "integer",
+              "title": "The Lnconrp Schema"
+            },
+            "lnauto": {
+              "$id": "/properties/data/properties/lnauto",
+              "type": "integer",
+              "title": "The Lnauto Schema"
+            },
+            "lnconoth": {
+              "$id": "/properties/data/properties/lnconoth",
+              "type": "integer",
+              "title": "The Lnconoth Schema"
+            },
+            "lnotci": {
+              "$id": "/properties/data/properties/lnotci",
+              "type": "integer",
+              "title": "The Lnotci Schema"
+            },
+            "lnfg": {
+              "$id": "/properties/data/properties/lnfg",
+              "type": "integer",
+              "title": "The Lnfg Schema"
+            },
+            "lnmuni": {
+              "$id": "/properties/data/properties/lnmuni",
+              "type": "integer",
+              "title": "The Lnmuni Schema"
+            },
+            "idothlns": {
+              "$id": "/properties/data/properties/idothlns",
+              "type": "integer",
+              "title": "The Idothlns Schema"
+            },
+            "ls": {
+              "$id": "/properties/data/properties/ls",
+              "type": "integer",
+              "title": "The Ls Schema"
+            },
+            "lndepac": {
+              "$id": "/properties/data/properties/lndepac",
+              "type": "integer",
+              "title": "The Lndepac Schema"
+            },
+            "lncomre": {
+              "$id": "/properties/data/properties/lncomre",
+              "type": "integer",
+              "title": "The Lncomre Schema"
+            },
+            "lnrenus": {
+              "$id": "/properties/data/properties/lnrenus",
+              "type": "integer",
+              "title": "The Lnrenus Schema"
+            },
+            "rslnltot": {
+              "$id": "/properties/data/properties/rslnltot",
+              "type": "integer",
+              "title": "The Rslnltot Schema"
+            },
+            "rslnls": {
+              "$id": "/properties/data/properties/rslnls",
+              "type": "integer",
+              "title": "The Rslnls Schema"
+            },
+            "lnrecnfm": {
+              "$id": "/properties/data/properties/lnrecnfm",
+              "type": "integer",
+              "title": "The Lnrecnfm Schema"
+            },
+            "lnrecnot": {
+              "$id": "/properties/data/properties/lnrecnot",
+              "type": "integer",
+              "title": "The Lnrecnot Schema"
+            },
+            "rb2lnres": {
+              "$id": "/properties/data/properties/rb2lnres",
+              "type": "integer",
+              "title": "The Rb2lnres Schema"
+            },
+            "eamintan": {
+              "$id": "/properties/data/properties/eamintan",
+              "type": "integer",
+              "title": "The Eamintan Schema"
+            },
+            "eintoth": {
+              "$id": "/properties/data/properties/eintoth",
+              "type": "integer",
+              "title": "The Eintoth Schema"
+            },
+            "eintgw": {
+              "$id": "/properties/data/properties/eintgw",
+              "type": "integer",
+              "title": "The Eintgw Schema"
+            },
+            "eothnint": {
+              "$id": "/properties/data/properties/eothnint",
+              "type": "integer",
+              "title": "The Eothnint Schema"
+            },
+            "lndepcb": {
+              "$id": "/properties/data/properties/lndepcb",
+              "type": "integer",
+              "title": "The Lndepcb Schema"
+            },
+            "lndepusb": {
+              "$id": "/properties/data/properties/lndepusb",
+              "type": "integer",
+              "title": "The Lndepusb Schema"
+            },
+            "lndepus": {
+              "$id": "/properties/data/properties/lndepus",
+              "type": "integer",
+              "title": "The Lndepus Schema"
+            },
+            "lndepfc": {
+              "$id": "/properties/data/properties/lndepfc",
+              "type": "integer",
+              "title": "The Lndepfc Schema"
+            },
+            "lndepfus": {
+              "$id": "/properties/data/properties/lndepfus",
+              "type": "integer",
+              "title": "The Lndepfus Schema"
+            },
+            "tip": {
+              "$id": "/properties/data/properties/tip",
+              "type": "integer",
+              "title": "The Tip Schema"
+            },
+            "tiec": {
+              "$id": "/properties/data/properties/tiec",
+              "type": "integer",
+              "title": "The Tiec Schema"
+            },
+            "tieb": {
+              "$id": "/properties/data/properties/tieb",
+              "type": "integer",
+              "title": "The Tieb Schema"
+            },
+            "tior": {
+              "$id": "/properties/data/properties/tior",
+              "type": "integer",
+              "title": "The Tior Schema"
+            },
+            "tica": {
+              "$id": "/properties/data/properties/tica",
+              "type": "integer",
+              "title": "The Tica Schema"
+            },
+            "tima": {
+              "$id": "/properties/data/properties/tima",
+              "type": "integer",
+              "title": "The Tima Schema"
+            },
+            "tife": {
+              "$id": "/properties/data/properties/tife",
+              "type": "integer",
+              "title": "The Tife Schema"
+            },
+            "tiof": {
+              "$id": "/properties/data/properties/tiof",
+              "type": "string",
+              "title": "The Tiof Schema"
+            },
+            "tics": {
+              "$id": "/properties/data/properties/tics",
+              "type": "integer",
+              "title": "The Tics Schema"
+            },
+            "tir": {
+              "$id": "/properties/data/properties/tir",
+              "type": "integer",
+              "title": "The Tir Schema"
+            },
+            "tetot": {
+              "$id": "/properties/data/properties/tetot",
+              "type": "string",
+              "title": "The Tetot Schema"
+            },
+            "tnl": {
+              "$id": "/properties/data/properties/tnl",
+              "type": "string",
+              "title": "The Tnl Schema"
+            },
+            "tintra": {
+              "$id": "/properties/data/properties/tintra",
+              "type": "string",
+              "title": "The Tintra Schema"
+            },
+            "tni": {
+              "$id": "/properties/data/properties/tni",
+              "type": "string",
+              "title": "The Tni Schema"
+            },
+            "titotf": {
+              "$id": "/properties/data/properties/titotf",
+              "type": "string",
+              "title": "The Titotf Schema"
+            },
+            "drlnls": {
+              "$id": "/properties/data/properties/drlnls",
+              "type": "integer",
+              "title": "The Drlnls Schema"
+            },
+            "drre": {
+              "$id": "/properties/data/properties/drre",
+              "type": "integer",
+              "title": "The Drre Schema"
+            },
+            "drrenus": {
+              "$id": "/properties/data/properties/drrenus",
+              "type": "integer",
+              "title": "The Drrenus Schema"
+            },
+            "iddrredm": {
+              "$id": "/properties/data/properties/iddrredm",
+              "type": "integer",
+              "title": "The Iddrredm Schema"
+            },
+            "drrecons": {
+              "$id": "/properties/data/properties/drrecons",
+              "type": "integer",
+              "title": "The Drrecons Schema"
+            },
+            "drrecnfm": {
+              "$id": "/properties/data/properties/drrecnfm",
+              "type": "integer",
+              "title": "The Drrecnfm Schema"
+            },
+            "drrecnot": {
+              "$id": "/properties/data/properties/drrecnot",
+              "type": "integer",
+              "title": "The Drrecnot Schema"
+            },
+            "drreag": {
+              "$id": "/properties/data/properties/drreag",
+              "type": "integer",
+              "title": "The Drreag Schema"
+            },
+            "drreres": {
+              "$id": "/properties/data/properties/drreres",
+              "type": "integer",
+              "title": "The Drreres Schema"
+            },
+            "drremult": {
+              "$id": "/properties/data/properties/drremult",
+              "type": "integer",
+              "title": "The Drremult Schema"
+            },
+            "drrenres": {
+              "$id": "/properties/data/properties/drrenres",
+              "type": "integer",
+              "title": "The Drrenres Schema"
+            },
+            "drrenrow": {
+              "$id": "/properties/data/properties/drrenrow",
+              "type": "integer",
+              "title": "The Drrenrow Schema"
+            },
+            "drrenrot": {
+              "$id": "/properties/data/properties/drrenrot",
+              "type": "integer",
+              "title": "The Drrenrot Schema"
+            },
+            "drrefor": {
+              "$id": "/properties/data/properties/drrefor",
+              "type": "string",
+              "title": "The Drrefor Schema"
+            },
+            "drdep": {
+              "$id": "/properties/data/properties/drdep",
+              "type": "integer",
+              "title": "The Drdep Schema"
+            },
+            "drdepnus": {
+              "$id": "/properties/data/properties/drdepnus",
+              "type": "integer",
+              "title": "The Drdepnus Schema"
+            },
+            "drag": {
+              "$id": "/properties/data/properties/drag",
+              "type": "string",
+              "title": "The Drag Schema"
+            },
+            "drci": {
+              "$id": "/properties/data/properties/drci",
+              "type": "integer",
+              "title": "The Drci Schema"
+            },
+            "drcon": {
+              "$id": "/properties/data/properties/drcon",
+              "type": "integer",
+              "title": "The Drcon Schema"
+            },
+            "drcrcd": {
+              "$id": "/properties/data/properties/drcrcd",
+              "type": "integer",
+              "title": "The Drcrcd Schema"
+            },
+            "drauto": {
+              "$id": "/properties/data/properties/drauto",
+              "type": "integer",
+              "title": "The Drauto Schema"
+            },
+            "drconoth": {
+              "$id": "/properties/data/properties/drconoth",
+              "type": "integer",
+              "title": "The Drconoth Schema"
+            },
+            "drforgv": {
+              "$id": "/properties/data/properties/drforgv",
+              "type": "integer",
+              "title": "The Drforgv Schema"
+            },
+            "drother": {
+              "$id": "/properties/data/properties/drother",
+              "type": "integer",
+              "title": "The Drother Schema"
+            },
+            "drls": {
+              "$id": "/properties/data/properties/drls",
+              "type": "integer",
+              "title": "The Drls Schema"
+            },
+            "dragsm": {
+              "$id": "/properties/data/properties/dragsm",
+              "type": "integer",
+              "title": "The Dragsm Schema"
+            },
+            "crlnls": {
+              "$id": "/properties/data/properties/crlnls",
+              "type": "integer",
+              "title": "The Crlnls Schema"
+            },
+            "crre": {
+              "$id": "/properties/data/properties/crre",
+              "type": "integer",
+              "title": "The Crre Schema"
+            },
+            "crrenus": {
+              "$id": "/properties/data/properties/crrenus",
+              "type": "integer",
+              "title": "The Crrenus Schema"
+            },
+            "idcrredm": {
+              "$id": "/properties/data/properties/idcrredm",
+              "type": "integer",
+              "title": "The Idcrredm Schema"
+            },
+            "crrecons": {
+              "$id": "/properties/data/properties/crrecons",
+              "type": "integer",
+              "title": "The Crrecons Schema"
+            },
+            "crrecnfm": {
+              "$id": "/properties/data/properties/crrecnfm",
+              "type": "integer",
+              "title": "The Crrecnfm Schema"
+            },
+            "crrecnot": {
+              "$id": "/properties/data/properties/crrecnot",
+              "type": "integer",
+              "title": "The Crrecnot Schema"
+            },
+            "crreag": {
+              "$id": "/properties/data/properties/crreag",
+              "type": "integer",
+              "title": "The Crreag Schema"
+            },
+            "crreres": {
+              "$id": "/properties/data/properties/crreres",
+              "type": "integer",
+              "title": "The Crreres Schema"
+            },
+            "crremult": {
+              "$id": "/properties/data/properties/crremult",
+              "type": "integer",
+              "title": "The Crremult Schema"
+            },
+            "crrenres": {
+              "$id": "/properties/data/properties/crrenres",
+              "type": "integer",
+              "title": "The Crrenres Schema"
+            },
+            "crrenrow": {
+              "$id": "/properties/data/properties/crrenrow",
+              "type": "integer",
+              "title": "The Crrenrow Schema"
+            },
+            "crrenrot": {
+              "$id": "/properties/data/properties/crrenrot",
+              "type": "integer",
+              "title": "The Crrenrot Schema"
+            },
+            "crrefor": {
+              "$id": "/properties/data/properties/crrefor",
+              "type": "string",
+              "title": "The Crrefor Schema"
+            },
+            "crdep": {
+              "$id": "/properties/data/properties/crdep",
+              "type": "integer",
+              "title": "The Crdep Schema"
+            },
+            "crdepnus": {
+              "$id": "/properties/data/properties/crdepnus",
+              "type": "integer",
+              "title": "The Crdepnus Schema"
+            },
+            "crag": {
+              "$id": "/properties/data/properties/crag",
+              "type": "string",
+              "title": "The Crag Schema"
+            },
+            "crci": {
+              "$id": "/properties/data/properties/crci",
+              "type": "integer",
+              "title": "The Crci Schema"
+            },
+            "crcon": {
+              "$id": "/properties/data/properties/crcon",
+              "type": "integer",
+              "title": "The Crcon Schema"
+            },
+            "crcrcd": {
+              "$id": "/properties/data/properties/crcrcd",
+              "type": "integer",
+              "title": "The Crcrcd Schema"
+            },
+            "crauto": {
+              "$id": "/properties/data/properties/crauto",
+              "type": "integer",
+              "title": "The Crauto Schema"
+            },
+            "crconoth": {
+              "$id": "/properties/data/properties/crconoth",
+              "type": "integer",
+              "title": "The Crconoth Schema"
+            },
+            "crforgv": {
+              "$id": "/properties/data/properties/crforgv",
+              "type": "integer",
+              "title": "The Crforgv Schema"
+            },
+            "crother": {
+              "$id": "/properties/data/properties/crother",
+              "type": "integer",
+              "title": "The Crother Schema"
+            },
+            "crls": {
+              "$id": "/properties/data/properties/crls",
+              "type": "integer",
+              "title": "The Crls Schema"
+            },
+            "cragsm": {
+              "$id": "/properties/data/properties/cragsm",
+              "type": "integer",
+              "title": "The Cragsm Schema"
+            },
+            "ntre": {
+              "$id": "/properties/data/properties/ntre",
+              "type": "integer",
+              "title": "The Ntre Schema"
+            },
+            "ntrenus": {
+              "$id": "/properties/data/properties/ntrenus",
+              "type": "integer",
+              "title": "The Ntrenus Schema"
+            },
+            "idntredm": {
+              "$id": "/properties/data/properties/idntredm",
+              "type": "integer",
+              "title": "The Idntredm Schema"
+            },
+            "ntrecons": {
+              "$id": "/properties/data/properties/ntrecons",
+              "type": "integer",
+              "title": "The Ntrecons Schema"
+            },
+            "ntrecnfm": {
+              "$id": "/properties/data/properties/ntrecnfm",
+              "type": "integer",
+              "title": "The Ntrecnfm Schema"
+            },
+            "ntrecnot": {
+              "$id": "/properties/data/properties/ntrecnot",
+              "type": "integer",
+              "title": "The Ntrecnot Schema"
+            },
+            "ntreag": {
+              "$id": "/properties/data/properties/ntreag",
+              "type": "integer",
+              "title": "The Ntreag Schema"
+            },
+            "ntreres": {
+              "$id": "/properties/data/properties/ntreres",
+              "type": "integer",
+              "title": "The Ntreres Schema"
+            },
+            "ntremult": {
+              "$id": "/properties/data/properties/ntremult",
+              "type": "integer",
+              "title": "The Ntremult Schema"
+            },
+            "ntrenres": {
+              "$id": "/properties/data/properties/ntrenres",
+              "type": "integer",
+              "title": "The Ntrenres Schema"
+            },
+            "ntrenrow": {
+              "$id": "/properties/data/properties/ntrenrow",
+              "type": "integer",
+              "title": "The Ntrenrow Schema"
+            },
+            "ntrenrot": {
+              "$id": "/properties/data/properties/ntrenrot",
+              "type": "integer",
+              "title": "The Ntrenrot Schema"
+            },
+            "ntrefor": {
+              "$id": "/properties/data/properties/ntrefor",
+              "type": "string",
+              "title": "The Ntrefor Schema"
+            },
+            "ntdep": {
+              "$id": "/properties/data/properties/ntdep",
+              "type": "integer",
+              "title": "The Ntdep Schema"
+            },
+            "ntdepnus": {
+              "$id": "/properties/data/properties/ntdepnus",
+              "type": "integer",
+              "title": "The Ntdepnus Schema"
+            },
+            "ntag": {
+              "$id": "/properties/data/properties/ntag",
+              "type": "string",
+              "title": "The Ntag Schema"
+            },
+            "ntci": {
+              "$id": "/properties/data/properties/ntci",
+              "type": "integer",
+              "title": "The Ntci Schema"
+            },
+            "ntcinus": {
+              "$id": "/properties/data/properties/ntcinus",
+              "type": "integer",
+              "title": "The Ntcinus Schema"
+            },
+            "ntcon": {
+              "$id": "/properties/data/properties/ntcon",
+              "type": "integer",
+              "title": "The Ntcon Schema"
+            },
+            "ntcrcd": {
+              "$id": "/properties/data/properties/ntcrcd",
+              "type": "integer",
+              "title": "The Ntcrcd Schema"
+            },
+            "ntauto": {
+              "$id": "/properties/data/properties/ntauto",
+              "type": "integer",
+              "title": "The Ntauto Schema"
+            },
+            "ntconoth": {
+              "$id": "/properties/data/properties/ntconoth",
+              "type": "integer",
+              "title": "The Ntconoth Schema"
+            },
+            "ntforgv": {
+              "$id": "/properties/data/properties/ntforgv",
+              "type": "integer",
+              "title": "The Ntforgv Schema"
+            },
+            "ntother": {
+              "$id": "/properties/data/properties/ntother",
+              "type": "integer",
+              "title": "The Ntother Schema"
+            },
+            "ntls": {
+              "$id": "/properties/data/properties/ntls",
+              "type": "integer",
+              "title": "The Ntls Schema"
+            },
+            "ntagsm": {
+              "$id": "/properties/data/properties/ntagsm",
+              "type": "integer",
+              "title": "The Ntagsm Schema"
+            },
+            "oreinv": {
+              "$id": "/properties/data/properties/oreinv",
+              "type": "string",
+              "title": "The Oreinv Schema"
+            },
+            "oreoth": {
+              "$id": "/properties/data/properties/oreoth",
+              "type": "integer",
+              "title": "The Oreoth Schema"
+            },
+            "oreres": {
+              "$id": "/properties/data/properties/oreres",
+              "type": "integer",
+              "title": "The Oreres Schema"
+            },
+            "oremult": {
+              "$id": "/properties/data/properties/oremult",
+              "type": "integer",
+              "title": "The Oremult Schema"
+            },
+            "orenres": {
+              "$id": "/properties/data/properties/orenres",
+              "type": "integer",
+              "title": "The Orenres Schema"
+            },
+            "orecons": {
+              "$id": "/properties/data/properties/orecons",
+              "type": "integer",
+              "title": "The Orecons Schema"
+            },
+            "oreag": {
+              "$id": "/properties/data/properties/oreag",
+              "type": "integer",
+              "title": "The Oreag Schema"
+            },
+            "oregnma": {
+              "$id": "/properties/data/properties/oregnma",
+              "type": "integer",
+              "title": "The Oregnma Schema"
+            },
+            "oreothf": {
+              "$id": "/properties/data/properties/oreothf",
+              "type": "string",
+              "title": "The Oreothf Schema"
+            },
+            "edepdom": {
+              "$id": "/properties/data/properties/edepdom",
+              "type": "integer",
+              "title": "The Edepdom Schema"
+            },
+            "edepfor": {
+              "$id": "/properties/data/properties/edepfor",
+              "type": "string",
+              "title": "The Edepfor Schema"
+            },
+            "efrepp": {
+              "$id": "/properties/data/properties/efrepp",
+              "type": "integer",
+              "title": "The Efrepp Schema"
+            },
+            "ettlotmg": {
+              "$id": "/properties/data/properties/ettlotmg",
+              "type": "integer",
+              "title": "The Ettlotmg Schema"
+            },
+            "esubnd": {
+              "$id": "/properties/data/properties/esubnd",
+              "type": "integer",
+              "title": "The Esubnd Schema"
+            },
+            "p3asset": {
+              "$id": "/properties/data/properties/p3asset",
+              "type": "integer",
+              "title": "The P3asset Schema"
+            },
+            "p3re": {
+              "$id": "/properties/data/properties/p3re",
+              "type": "integer",
+              "title": "The P3re Schema"
+            },
+            "p3renus": {
+              "$id": "/properties/data/properties/p3renus",
+              "type": "integer",
+              "title": "The P3renus Schema"
+            },
+            "idp3redm": {
+              "$id": "/properties/data/properties/idp3redm",
+              "type": "integer",
+              "title": "The Idp3redm Schema"
+            },
+            "p3recons": {
+              "$id": "/properties/data/properties/p3recons",
+              "type": "integer",
+              "title": "The P3recons Schema"
+            },
+            "p3recnfm": {
+              "$id": "/properties/data/properties/p3recnfm",
+              "type": "integer",
+              "title": "The P3recnfm Schema"
+            },
+            "p3recnot": {
+              "$id": "/properties/data/properties/p3recnot",
+              "type": "integer",
+              "title": "The P3recnot Schema"
+            },
+            "p3reag": {
+              "$id": "/properties/data/properties/p3reag",
+              "type": "integer",
+              "title": "The P3reag Schema"
+            },
+            "p3reres": {
+              "$id": "/properties/data/properties/p3reres",
+              "type": "integer",
+              "title": "The P3reres Schema"
+            },
+            "p3remult": {
+              "$id": "/properties/data/properties/p3remult",
+              "type": "integer",
+              "title": "The P3remult Schema"
+            },
+            "p3renres": {
+              "$id": "/properties/data/properties/p3renres",
+              "type": "integer",
+              "title": "The P3renres Schema"
+            },
+            "p3renrow": {
+              "$id": "/properties/data/properties/p3renrow",
+              "type": "integer",
+              "title": "The P3renrow Schema"
+            },
+            "p3renrot": {
+              "$id": "/properties/data/properties/p3renrot",
+              "type": "integer",
+              "title": "The P3renrot Schema"
+            },
+            "p3refor": {
+              "$id": "/properties/data/properties/p3refor",
+              "type": "string",
+              "title": "The P3refor Schema"
+            },
+            "p3dep": {
+              "$id": "/properties/data/properties/p3dep",
+              "type": "integer",
+              "title": "The P3dep Schema"
+            },
+            "p3depnus": {
+              "$id": "/properties/data/properties/p3depnus",
+              "type": "integer",
+              "title": "The P3depnus Schema"
+            },
+            "p3ag": {
+              "$id": "/properties/data/properties/p3ag",
+              "type": "string",
+              "title": "The P3ag Schema"
+            },
+            "p3ci": {
+              "$id": "/properties/data/properties/p3ci",
+              "type": "integer",
+              "title": "The P3ci Schema"
+            },
+            "p3cinus": {
+              "$id": "/properties/data/properties/p3cinus",
+              "type": "integer",
+              "title": "The P3cinus Schema"
+            },
+            "p3con": {
+              "$id": "/properties/data/properties/p3con",
+              "type": "integer",
+              "title": "The P3con Schema"
+            },
+            "p3crcd": {
+              "$id": "/properties/data/properties/p3crcd",
+              "type": "integer",
+              "title": "The P3crcd Schema"
+            },
+            "p3auto": {
+              "$id": "/properties/data/properties/p3auto",
+              "type": "integer",
+              "title": "The P3auto Schema"
+            },
+            "p3conoth": {
+              "$id": "/properties/data/properties/p3conoth",
+              "type": "integer",
+              "title": "The P3conoth Schema"
+            },
+            "p3fg": {
+              "$id": "/properties/data/properties/p3fg",
+              "type": "integer",
+              "title": "The P3fg Schema"
+            },
+            "p3othln": {
+              "$id": "/properties/data/properties/p3othln",
+              "type": "integer",
+              "title": "The P3othln Schema"
+            },
+            "p3ls": {
+              "$id": "/properties/data/properties/p3ls",
+              "type": "integer",
+              "title": "The P3ls Schema"
+            },
+            "p3scdebt": {
+              "$id": "/properties/data/properties/p3scdebt",
+              "type": "integer",
+              "title": "The P3scdebt Schema"
+            },
+            "p3agsm": {
+              "$id": "/properties/data/properties/p3agsm",
+              "type": "integer",
+              "title": "The P3agsm Schema"
+            },
+            "p3lnsale": {
+              "$id": "/properties/data/properties/p3lnsale",
+              "type": "integer",
+              "title": "The P3lnsale Schema"
+            },
+            "p3gtypar": {
+              "$id": "/properties/data/properties/p3gtypar",
+              "type": "integer",
+              "title": "The P3gtypar Schema"
+            },
+            "p9asset": {
+              "$id": "/properties/data/properties/p9asset",
+              "type": "integer",
+              "title": "The P9asset Schema"
+            },
+            "p9re": {
+              "$id": "/properties/data/properties/p9re",
+              "type": "integer",
+              "title": "The P9re Schema"
+            },
+            "p9renus": {
+              "$id": "/properties/data/properties/p9renus",
+              "type": "integer",
+              "title": "The P9renus Schema"
+            },
+            "idp9redm": {
+              "$id": "/properties/data/properties/idp9redm",
+              "type": "integer",
+              "title": "The Idp9redm Schema"
+            },
+            "p9recons": {
+              "$id": "/properties/data/properties/p9recons",
+              "type": "integer",
+              "title": "The P9recons Schema"
+            },
+            "p9recnfm": {
+              "$id": "/properties/data/properties/p9recnfm",
+              "type": "integer",
+              "title": "The P9recnfm Schema"
+            },
+            "p9recnot": {
+              "$id": "/properties/data/properties/p9recnot",
+              "type": "integer",
+              "title": "The P9recnot Schema"
+            },
+            "p9reag": {
+              "$id": "/properties/data/properties/p9reag",
+              "type": "integer",
+              "title": "The P9reag Schema"
+            },
+            "p9reres": {
+              "$id": "/properties/data/properties/p9reres",
+              "type": "integer",
+              "title": "The P9reres Schema"
+            },
+            "p9remult": {
+              "$id": "/properties/data/properties/p9remult",
+              "type": "integer",
+              "title": "The P9remult Schema"
+            },
+            "p9renres": {
+              "$id": "/properties/data/properties/p9renres",
+              "type": "integer",
+              "title": "The P9renres Schema"
+            },
+            "p9renrow": {
+              "$id": "/properties/data/properties/p9renrow",
+              "type": "integer",
+              "title": "The P9renrow Schema"
+            },
+            "p9renrot": {
+              "$id": "/properties/data/properties/p9renrot",
+              "type": "integer",
+              "title": "The P9renrot Schema"
+            },
+            "p9refor": {
+              "$id": "/properties/data/properties/p9refor",
+              "type": "string",
+              "title": "The P9refor Schema"
+            },
+            "p9dep": {
+              "$id": "/properties/data/properties/p9dep",
+              "type": "integer",
+              "title": "The P9dep Schema"
+            },
+            "p9depnus": {
+              "$id": "/properties/data/properties/p9depnus",
+              "type": "integer",
+              "title": "The P9depnus Schema"
+            },
+            "p9ag": {
+              "$id": "/properties/data/properties/p9ag",
+              "type": "string",
+              "title": "The P9ag Schema"
+            },
+            "p9ci": {
+              "$id": "/properties/data/properties/p9ci",
+              "type": "integer",
+              "title": "The P9ci Schema"
+            },
+            "p9cinus": {
+              "$id": "/properties/data/properties/p9cinus",
+              "type": "integer",
+              "title": "The P9cinus Schema"
+            },
+            "p9con": {
+              "$id": "/properties/data/properties/p9con",
+              "type": "integer",
+              "title": "The P9con Schema"
+            },
+            "p9crcd": {
+              "$id": "/properties/data/properties/p9crcd",
+              "type": "integer",
+              "title": "The P9crcd Schema"
+            },
+            "p9auto": {
+              "$id": "/properties/data/properties/p9auto",
+              "type": "integer",
+              "title": "The P9auto Schema"
+            },
+            "p9conoth": {
+              "$id": "/properties/data/properties/p9conoth",
+              "type": "integer",
+              "title": "The P9conoth Schema"
+            },
+            "p9fg": {
+              "$id": "/properties/data/properties/p9fg",
+              "type": "integer",
+              "title": "The P9fg Schema"
+            },
+            "p9othln": {
+              "$id": "/properties/data/properties/p9othln",
+              "type": "integer",
+              "title": "The P9othln Schema"
+            },
+            "p9ls": {
+              "$id": "/properties/data/properties/p9ls",
+              "type": "integer",
+              "title": "The P9ls Schema"
+            },
+            "p9scdebt": {
+              "$id": "/properties/data/properties/p9scdebt",
+              "type": "integer",
+              "title": "The P9scdebt Schema"
+            },
+            "p9agsm": {
+              "$id": "/properties/data/properties/p9agsm",
+              "type": "integer",
+              "title": "The P9agsm Schema"
+            },
+            "p9lnsale": {
+              "$id": "/properties/data/properties/p9lnsale",
+              "type": "integer",
+              "title": "The P9lnsale Schema"
+            },
+            "p9gtypar": {
+              "$id": "/properties/data/properties/p9gtypar",
+              "type": "integer",
+              "title": "The P9gtypar Schema"
+            },
+            "naasset": {
+              "$id": "/properties/data/properties/naasset",
+              "type": "integer",
+              "title": "The Naasset Schema"
+            },
+            "nare": {
+              "$id": "/properties/data/properties/nare",
+              "type": "integer",
+              "title": "The Nare Schema"
+            },
+            "narenus": {
+              "$id": "/properties/data/properties/narenus",
+              "type": "integer",
+              "title": "The Narenus Schema"
+            },
+            "idnaredm": {
+              "$id": "/properties/data/properties/idnaredm",
+              "type": "integer",
+              "title": "The Idnaredm Schema"
+            },
+            "narecons": {
+              "$id": "/properties/data/properties/narecons",
+              "type": "integer",
+              "title": "The Narecons Schema"
+            },
+            "narecnfm": {
+              "$id": "/properties/data/properties/narecnfm",
+              "type": "integer",
+              "title": "The Narecnfm Schema"
+            },
+            "narecnot": {
+              "$id": "/properties/data/properties/narecnot",
+              "type": "integer",
+              "title": "The Narecnot Schema"
+            },
+            "nareag": {
+              "$id": "/properties/data/properties/nareag",
+              "type": "integer",
+              "title": "The Nareag Schema"
+            },
+            "naremult": {
+              "$id": "/properties/data/properties/naremult",
+              "type": "integer",
+              "title": "The Naremult Schema"
+            },
+            "narenres": {
+              "$id": "/properties/data/properties/narenres",
+              "type": "integer",
+              "title": "The Narenres Schema"
+            },
+            "narenrow": {
+              "$id": "/properties/data/properties/narenrow",
+              "type": "integer",
+              "title": "The Narenrow Schema"
+            },
+            "narenrot": {
+              "$id": "/properties/data/properties/narenrot",
+              "type": "integer",
+              "title": "The Narenrot Schema"
+            },
+            "narefor": {
+              "$id": "/properties/data/properties/narefor",
+              "type": "string",
+              "title": "The Narefor Schema"
+            },
+            "nadep": {
+              "$id": "/properties/data/properties/nadep",
+              "type": "integer",
+              "title": "The Nadep Schema"
+            },
+            "nadepnus": {
+              "$id": "/properties/data/properties/nadepnus",
+              "type": "integer",
+              "title": "The Nadepnus Schema"
+            },
+            "naag": {
+              "$id": "/properties/data/properties/naag",
+              "type": "string",
+              "title": "The Naag Schema"
+            },
+            "naci": {
+              "$id": "/properties/data/properties/naci",
+              "type": "integer",
+              "title": "The Naci Schema"
+            },
+            "nacinus": {
+              "$id": "/properties/data/properties/nacinus",
+              "type": "integer",
+              "title": "The Nacinus Schema"
+            },
+            "nacon": {
+              "$id": "/properties/data/properties/nacon",
+              "type": "integer",
+              "title": "The Nacon Schema"
+            },
+            "nacrcd": {
+              "$id": "/properties/data/properties/nacrcd",
+              "type": "integer",
+              "title": "The Nacrcd Schema"
+            },
+            "naauto": {
+              "$id": "/properties/data/properties/naauto",
+              "type": "integer",
+              "title": "The Naauto Schema"
+            },
+            "naconoth": {
+              "$id": "/properties/data/properties/naconoth",
+              "type": "integer",
+              "title": "The Naconoth Schema"
+            },
+            "nafg": {
+              "$id": "/properties/data/properties/nafg",
+              "type": "integer",
+              "title": "The Nafg Schema"
+            },
+            "naothln": {
+              "$id": "/properties/data/properties/naothln",
+              "type": "integer",
+              "title": "The Naothln Schema"
+            },
+            "nals": {
+              "$id": "/properties/data/properties/nals",
+              "type": "integer",
+              "title": "The Nals Schema"
+            },
+            "nascdebt": {
+              "$id": "/properties/data/properties/nascdebt",
+              "type": "integer",
+              "title": "The Nascdebt Schema"
+            },
+            "naagsm": {
+              "$id": "/properties/data/properties/naagsm",
+              "type": "integer",
+              "title": "The Naagsm Schema"
+            },
+            "nalnsale": {
+              "$id": "/properties/data/properties/nalnsale",
+              "type": "integer",
+              "title": "The Nalnsale Schema"
+            },
+            "nagtypar": {
+              "$id": "/properties/data/properties/nagtypar",
+              "type": "integer",
+              "title": "The Nagtypar Schema"
+            },
+            "depsmamt": {
+              "$id": "/properties/data/properties/depsmamt",
+              "type": "string",
+              "title": "The Depsmamt Schema"
+            },
+            "depsmb": {
+              "$id": "/properties/data/properties/depsmb",
+              "type": "string",
+              "title": "The Depsmb Schema"
+            },
+            "ntrcdsm": {
+              "$id": "/properties/data/properties/ntrcdsm",
+              "type": "integer",
+              "title": "The Ntrcdsm Schema"
+            },
+            "deplgamt": {
+              "$id": "/properties/data/properties/deplgamt",
+              "type": "string",
+              "title": "The Deplgamt Schema"
+            },
+            "deplgb": {
+              "$id": "/properties/data/properties/deplgb",
+              "type": "string",
+              "title": "The Deplgb Schema"
+            },
+            "ntrtmlg": {
+              "$id": "/properties/data/properties/ntrtmlg",
+              "type": "integer",
+              "title": "The Ntrtmlg Schema"
+            },
+            "lnsb": {
+              "$id": "/properties/data/properties/lnsb",
+              "type": "integer",
+              "title": "The Lnsb Schema"
+            },
+            "lnsbr": {
+              "$id": "/properties/data/properties/lnsbr",
+              "type": "integer",
+              "title": "The Lnsbr Schema"
+            },
+            "msrece": {
+              "$id": "/properties/data/properties/msrece",
+              "type": "integer",
+              "title": "The Msrece Schema"
+            },
+            "msrnrece": {
+              "$id": "/properties/data/properties/msrnrece",
+              "type": "integer",
+              "title": "The Msrnrece Schema"
+            },
+            "lnserv": {
+              "$id": "/properties/data/properties/lnserv",
+              "type": "integer",
+              "title": "The Lnserv Schema"
+            },
+            "abcxbk": {
+              "$id": "/properties/data/properties/abcxbk",
+              "type": "integer",
+              "title": "The Abcxbk Schema"
+            },
+            "abcxoth": {
+              "$id": "/properties/data/properties/abcxoth",
+              "type": "integer",
+              "title": "The Abcxoth Schema"
+            },
+            "abcubk": {
+              "$id": "/properties/data/properties/abcubk",
+              "type": "integer",
+              "title": "The Abcubk Schema"
+            },
+            "abcuoth": {
+              "$id": "/properties/data/properties/abcuoth",
+              "type": "integer",
+              "title": "The Abcuoth Schema"
+            },
+            "szcrcdfe": {
+              "$id": "/properties/data/properties/szcrcdfe",
+              "type": "integer",
+              "title": "The Szcrcdfe Schema"
+            },
+            "lnls": {
+              "$id": "/properties/data/properties/lnls",
+              "type": "integer",
+              "title": "The Lnls Schema"
+            },
+            "lnrs3les": {
+              "$id": "/properties/data/properties/lnrs3les",
+              "type": "integer",
+              "title": "The Lnrs3les Schema"
+            },
+            "lnrs3t12": {
+              "$id": "/properties/data/properties/lnrs3t12",
+              "type": "integer",
+              "title": "The Lnrs3t12 Schema"
+            },
+            "lnrs1t3": {
+              "$id": "/properties/data/properties/lnrs1t3",
+              "type": "integer",
+              "title": "The Lnrs1t3 Schema"
+            },
+            "lnrs3t5": {
+              "$id": "/properties/data/properties/lnrs3t5",
+              "type": "integer",
+              "title": "The Lnrs3t5 Schema"
+            },
+            "lnrs5t15": {
+              "$id": "/properties/data/properties/lnrs5t15",
+              "type": "integer",
+              "title": "The Lnrs5t15 Schema"
+            },
+            "lnrsov15": {
+              "$id": "/properties/data/properties/lnrsov15",
+              "type": "integer",
+              "title": "The Lnrsov15 Schema"
+            },
+            "lnot3les": {
+              "$id": "/properties/data/properties/lnot3les",
+              "type": "integer",
+              "title": "The Lnot3les Schema"
+            },
+            "lnot3t12": {
+              "$id": "/properties/data/properties/lnot3t12",
+              "type": "integer",
+              "title": "The Lnot3t12 Schema"
+            },
+            "lnot1t3": {
+              "$id": "/properties/data/properties/lnot1t3",
+              "type": "integer",
+              "title": "The Lnot1t3 Schema"
+            },
+            "lnot3t5": {
+              "$id": "/properties/data/properties/lnot3t5",
+              "type": "integer",
+              "title": "The Lnot3t5 Schema"
+            },
+            "lnot5t15": {
+              "$id": "/properties/data/properties/lnot5t15",
+              "type": "integer",
+              "title": "The Lnot5t15 Schema"
+            },
+            "lnotov15": {
+              "$id": "/properties/data/properties/lnotov15",
+              "type": "integer",
+              "title": "The Lnotov15 Schema"
+            },
+            "nclnlsr": {
+              "$id": "/properties/data/properties/nclnlsr",
+              "type": "number",
+              "title": "The Nclnlsr Schema"
+            },
+            "ncrer": {
+              "$id": "/properties/data/properties/ncrer",
+              "type": "number",
+              "title": "The Ncrer Schema"
+            },
+            "ncreconr": {
+              "$id": "/properties/data/properties/ncreconr",
+              "type": "number",
+              "title": "The Ncreconr Schema"
+            },
+            "ncrenrer": {
+              "$id": "/properties/data/properties/ncrenrer",
+              "type": "number",
+              "title": "The Ncrenrer Schema"
+            },
+            "ncremulr": {
+              "$id": "/properties/data/properties/ncremulr",
+              "type": "integer",
+              "title": "The Ncremulr Schema"
+            },
+            "ncreresr": {
+              "$id": "/properties/data/properties/ncreresr",
+              "type": "number",
+              "title": "The Ncreresr Schema"
+            },
+            "ncrelocr": {
+              "$id": "/properties/data/properties/ncrelocr",
+              "type": "number",
+              "title": "The Ncrelocr Schema"
+            },
+            "ncrereor": {
+              "$id": "/properties/data/properties/ncrereor",
+              "type": "number",
+              "title": "The Ncrereor Schema"
+            },
+            "idnccir": {
+              "$id": "/properties/data/properties/idnccir",
+              "type": "number",
+              "title": "The Idnccir Schema"
+            },
+            "idncconr": {
+              "$id": "/properties/data/properties/idncconr",
+              "type": "number",
+              "title": "The Idncconr Schema"
+            },
+            "idnccrdr": {
+              "$id": "/properties/data/properties/idnccrdr",
+              "type": "string",
+              "title": "The Idnccrdr Schema"
+            },
+            "idnccoor": {
+              "$id": "/properties/data/properties/idnccoor",
+              "type": "number",
+              "title": "The Idnccoor Schema"
+            },
+            "idncator": {
+              "$id": "/properties/data/properties/idncator",
+              "type": "integer",
+              "title": "The Idncator Schema"
+            },
+            "idnccotr": {
+              "$id": "/properties/data/properties/idnccotr",
+              "type": "number",
+              "title": "The Idnccotr Schema"
+            },
+            "idncothr": {
+              "$id": "/properties/data/properties/idncothr",
+              "type": "integer",
+              "title": "The Idncothr Schema"
+            },
+            "nccomrer": {
+              "$id": "/properties/data/properties/nccomrer",
+              "type": "string",
+              "title": "The Nccomrer Schema"
+            },
+            "idncgtpr": {
+              "$id": "/properties/data/properties/idncgtpr",
+              "type": "integer",
+              "title": "The Idncgtpr Schema"
+            },
+            "drrersfm": {
+              "$id": "/properties/data/properties/drrersfm",
+              "type": "integer",
+              "title": "The Drrersfm Schema"
+            },
+            "drrersf2": {
+              "$id": "/properties/data/properties/drrersf2",
+              "type": "integer",
+              "title": "The Drrersf2 Schema"
+            },
+            "drreloc": {
+              "$id": "/properties/data/properties/drreloc",
+              "type": "integer",
+              "title": "The Drreloc Schema"
+            },
+            "scrdebt": {
+              "$id": "/properties/data/properties/scrdebt",
+              "type": "integer",
+              "title": "The Scrdebt Schema"
+            },
+            "scpt3les": {
+              "$id": "/properties/data/properties/scpt3les",
+              "type": "integer",
+              "title": "The Scpt3les Schema"
+            },
+            "scpt3t12": {
+              "$id": "/properties/data/properties/scpt3t12",
+              "type": "integer",
+              "title": "The Scpt3t12 Schema"
+            },
+            "scpt1t3": {
+              "$id": "/properties/data/properties/scpt1t3",
+              "type": "integer",
+              "title": "The Scpt1t3 Schema"
+            },
+            "scpt3t5": {
+              "$id": "/properties/data/properties/scpt3t5",
+              "type": "integer",
+              "title": "The Scpt3t5 Schema"
+            },
+            "scpt5t15": {
+              "$id": "/properties/data/properties/scpt5t15",
+              "type": "integer",
+              "title": "The Scpt5t15 Schema"
+            },
+            "scptov15": {
+              "$id": "/properties/data/properties/scptov15",
+              "type": "integer",
+              "title": "The Scptov15 Schema"
+            },
+            "sco3yles": {
+              "$id": "/properties/data/properties/sco3yles",
+              "type": "integer",
+              "title": "The Sco3yles Schema"
+            },
+            "scoov3y": {
+              "$id": "/properties/data/properties/scoov3y",
+              "type": "integer",
+              "title": "The Scoov3y Schema"
+            },
+            "scnm3les": {
+              "$id": "/properties/data/properties/scnm3les",
+              "type": "integer",
+              "title": "The Scnm3les Schema"
+            },
+            "scnm3t12": {
+              "$id": "/properties/data/properties/scnm3t12",
+              "type": "integer",
+              "title": "The Scnm3t12 Schema"
+            },
+            "scnm1t3": {
+              "$id": "/properties/data/properties/scnm1t3",
+              "type": "integer",
+              "title": "The Scnm1t3 Schema"
+            },
+            "scnm3t5": {
+              "$id": "/properties/data/properties/scnm3t5",
+              "type": "integer",
+              "title": "The Scnm3t5 Schema"
+            },
+            "scnm5t15": {
+              "$id": "/properties/data/properties/scnm5t15",
+              "type": "integer",
+              "title": "The Scnm5t15 Schema"
+            },
+            "scnmov15": {
+              "$id": "/properties/data/properties/scnmov15",
+              "type": "integer",
+              "title": "The Scnmov15 Schema"
+            },
+            "sc1les": {
+              "$id": "/properties/data/properties/sc1les",
+              "type": "integer",
+              "title": "The Sc1les Schema"
+            },
+            "idntilr": {
+              "$id": "/properties/data/properties/idntilr",
+              "type": "string",
+              "title": "The Idntilr Schema"
+            },
+            "idntigr": {
+              "$id": "/properties/data/properties/idntigr",
+              "type": "string",
+              "title": "The Idntigr Schema"
+            },
+            "intincy": {
+              "$id": "/properties/data/properties/intincy",
+              "type": "number",
+              "title": "The Intincy Schema"
+            },
+            "intexpy": {
+              "$id": "/properties/data/properties/intexpy",
+              "type": "number",
+              "title": "The Intexpy Schema"
+            },
+            "nimy": {
+              "$id": "/properties/data/properties/nimy",
+              "type": "number",
+              "title": "The Nimy Schema"
+            },
+            "noniiay": {
+              "$id": "/properties/data/properties/noniiay",
+              "type": "number",
+              "title": "The Noniiay Schema"
+            },
+            "nonixay": {
+              "$id": "/properties/data/properties/nonixay",
+              "type": "number",
+              "title": "The Nonixay Schema"
+            },
+            "elnatry": {
+              "$id": "/properties/data/properties/elnatry",
+              "type": "number",
+              "title": "The Elnatry Schema"
+            },
+            "noijy": {
+              "$id": "/properties/data/properties/noijy",
+              "type": "number",
+              "title": "The Noijy Schema"
+            },
+            "roa": {
+              "$id": "/properties/data/properties/roa",
+              "type": "number",
+              "title": "The Roa Schema"
+            },
+            "roaptx": {
+              "$id": "/properties/data/properties/roaptx",
+              "type": "number",
+              "title": "The Roaptx Schema"
+            },
+            "roe": {
+              "$id": "/properties/data/properties/roe",
+              "type": "number",
+              "title": "The Roe Schema"
+            },
+            "roeinjr": {
+              "$id": "/properties/data/properties/roeinjr",
+              "type": "number",
+              "title": "The Roeinjr Schema"
+            },
+            "elnantr": {
+              "$id": "/properties/data/properties/elnantr",
+              "type": "number",
+              "title": "The Elnantr Schema"
+            },
+            "iderncvr": {
+              "$id": "/properties/data/properties/iderncvr",
+              "type": "number",
+              "title": "The Iderncvr Schema"
+            },
+            "eeffr": {
+              "$id": "/properties/data/properties/eeffr",
+              "type": "number",
+              "title": "The Eeffr Schema"
+            },
+            "astempm": {
+              "$id": "/properties/data/properties/astempm",
+              "type": "number",
+              "title": "The Astempm Schema"
+            },
+            "iddivnir": {
+              "$id": "/properties/data/properties/iddivnir",
+              "type": "integer",
+              "title": "The Iddivnir Schema"
+            },
+            "ernastr": {
+              "$id": "/properties/data/properties/ernastr",
+              "type": "number",
+              "title": "The Ernastr Schema"
+            },
+            "lnatresr": {
+              "$id": "/properties/data/properties/lnatresr",
+              "type": "number",
+              "title": "The Lnatresr Schema"
+            },
+            "lnresncr": {
+              "$id": "/properties/data/properties/lnresncr",
+              "type": "number",
+              "title": "The Lnresncr Schema"
+            },
+            "nperfv": {
+              "$id": "/properties/data/properties/nperfv",
+              "type": "number",
+              "title": "The Nperfv Schema"
+            },
+            "lnlsntv": {
+              "$id": "/properties/data/properties/lnlsntv",
+              "type": "number",
+              "title": "The Lnlsntv Schema"
+            },
+            "lnlsdepr": {
+              "$id": "/properties/data/properties/lnlsdepr",
+              "type": "number",
+              "title": "The Lnlsdepr Schema"
+            },
+            "idlncorr": {
+              "$id": "/properties/data/properties/idlncorr",
+              "type": "number",
+              "title": "The Idlncorr Schema"
+            },
+            "depdastr": {
+              "$id": "/properties/data/properties/depdastr",
+              "type": "number",
+              "title": "The Depdastr Schema"
+            },
+            "eqv": {
+              "$id": "/properties/data/properties/eqv",
+              "type": "number",
+              "title": "The Eqv Schema"
+            },
+            "rbc1aaj": {
+              "$id": "/properties/data/properties/rbc1aaj",
+              "type": "number",
+              "title": "The Rbc1aaj Schema"
+            },
+            "rbc1rwaj": {
+              "$id": "/properties/data/properties/rbc1rwaj",
+              "type": "number",
+              "title": "The Rbc1rwaj Schema"
+            },
+            "rbcrwaj": {
+              "$id": "/properties/data/properties/rbcrwaj",
+              "type": "number",
+              "title": "The Rbcrwaj Schema"
+            },
+            "rbct1cer": {
+              "$id": "/properties/data/properties/rbct1cer",
+              "type": "string",
+              "title": "The Rbct1cer Schema"
+            },
+            "ernast5": {
+              "$id": "/properties/data/properties/ernast5",
+              "type": "number",
+              "title": "The Ernast5 Schema"
+            },
+            "eq5": {
+              "$id": "/properties/data/properties/eq5",
+              "type": "integer",
+              "title": "The Eq5 Schema"
+            },
+            "lnlsgr5": {
+              "$id": "/properties/data/properties/lnlsgr5",
+              "type": "number",
+              "title": "The Lnlsgr5 Schema"
+            },
+            "ucloc": {
+              "$id": "/properties/data/properties/ucloc",
+              "type": "integer",
+              "title": "The Ucloc Schema"
+            },
+            "uccrcd": {
+              "$id": "/properties/data/properties/uccrcd",
+              "type": "integer",
+              "title": "The Uccrcd Schema"
+            },
+            "uccomre": {
+              "$id": "/properties/data/properties/uccomre",
+              "type": "integer",
+              "title": "The Uccomre Schema"
+            },
+            "uccomres": {
+              "$id": "/properties/data/properties/uccomres",
+              "type": "integer",
+              "title": "The Uccomres Schema"
+            },
+            "uccomreu": {
+              "$id": "/properties/data/properties/uccomreu",
+              "type": "integer",
+              "title": "The Uccomreu Schema"
+            },
+            "ucsc": {
+              "$id": "/properties/data/properties/ucsc",
+              "type": "integer",
+              "title": "The Ucsc Schema"
+            },
+            "ucother": {
+              "$id": "/properties/data/properties/ucother",
+              "type": "integer",
+              "title": "The Ucother Schema"
+            },
+            "ucover1": {
+              "$id": "/properties/data/properties/ucover1",
+              "type": "integer",
+              "title": "The Ucover1 Schema"
+            },
+            "sclent": {
+              "$id": "/properties/data/properties/sclent",
+              "type": "integer",
+              "title": "The Sclent Schema"
+            },
+            "othoffbs": {
+              "$id": "/properties/data/properties/othoffbs",
+              "type": "integer",
+              "title": "The Othoffbs Schema"
+            },
+            "partconv": {
+              "$id": "/properties/data/properties/partconv",
+              "type": "string",
+              "title": "The Partconv Schema"
+            },
+            "partacqu": {
+              "$id": "/properties/data/properties/partacqu",
+              "type": "integer",
+              "title": "The Partacqu Schema"
+            },
+            "crrersfm": {
+              "$id": "/properties/data/properties/crrersfm",
+              "type": "integer",
+              "title": "The Crrersfm Schema"
+            },
+            "crrersf2": {
+              "$id": "/properties/data/properties/crrersf2",
+              "type": "integer",
+              "title": "The Crrersf2 Schema"
+            },
+            "crreloc": {
+              "$id": "/properties/data/properties/crreloc",
+              "type": "integer",
+              "title": "The Crreloc Schema"
+            },
+            "intangw": {
+              "$id": "/properties/data/properties/intangw",
+              "type": "integer",
+              "title": "The Intangw Schema"
+            },
+            "intanmsr": {
+              "$id": "/properties/data/properties/intanmsr",
+              "type": "integer",
+              "title": "The Intanmsr Schema"
+            },
+            "intangcc": {
+              "$id": "/properties/data/properties/intangcc",
+              "type": "integer",
+              "title": "The Intangcc Schema"
+            },
+            "intangao": {
+              "$id": "/properties/data/properties/intangao",
+              "type": "integer",
+              "title": "The Intangao Schema"
+            },
+            "scus": {
+              "$id": "/properties/data/properties/scus",
+              "type": "integer",
+              "title": "The Scus Schema"
+            },
+            "scust": {
+              "$id": "/properties/data/properties/scust",
+              "type": "integer",
+              "title": "The Scust Schema"
+            },
+            "scage": {
+              "$id": "/properties/data/properties/scage",
+              "type": "integer",
+              "title": "The Scage Schema"
+            },
+            "scmuni": {
+              "$id": "/properties/data/properties/scmuni",
+              "type": "integer",
+              "title": "The Scmuni Schema"
+            },
+            "scdomo": {
+              "$id": "/properties/data/properties/scdomo",
+              "type": "integer",
+              "title": "The Scdomo Schema"
+            },
+            "idscod": {
+              "$id": "/properties/data/properties/idscod",
+              "type": "integer",
+              "title": "The Idscod Schema"
+            },
+            "sccmmb": {
+              "$id": "/properties/data/properties/sccmmb",
+              "type": "integer",
+              "title": "The Sccmmb Schema"
+            },
+            "scabs": {
+              "$id": "/properties/data/properties/scabs",
+              "type": "integer",
+              "title": "The Scabs Schema"
+            },
+            "scsfp": {
+              "$id": "/properties/data/properties/scsfp",
+              "type": "integer",
+              "title": "The Scsfp Schema"
+            },
+            "scodot": {
+              "$id": "/properties/data/properties/scodot",
+              "type": "integer",
+              "title": "The Scodot Schema"
+            },
+            "scford": {
+              "$id": "/properties/data/properties/scford",
+              "type": "integer",
+              "title": "The Scford Schema"
+            },
+            "sceq": {
+              "$id": "/properties/data/properties/sceq",
+              "type": "integer",
+              "title": "The Sceq Schema"
+            },
+            "idahta": {
+              "$id": "/properties/data/properties/idahta",
+              "type": "string",
+              "title": "The Idahta Schema"
+            },
+            "scres": {
+              "$id": "/properties/data/properties/scres",
+              "type": "string",
+              "title": "The Scres Schema"
+            },
+            "scpledge": {
+              "$id": "/properties/data/properties/scpledge",
+              "type": "integer",
+              "title": "The Scpledge Schema"
+            },
+            "scmtgbk": {
+              "$id": "/properties/data/properties/scmtgbk",
+              "type": "integer",
+              "title": "The Scmtgbk Schema"
+            },
+            "idscgtpc": {
+              "$id": "/properties/data/properties/idscgtpc",
+              "type": "integer",
+              "title": "The Idscgtpc Schema"
+            },
+            "scgty": {
+              "$id": "/properties/data/properties/scgty",
+              "type": "integer",
+              "title": "The Scgty Schema"
+            },
+            "scodpc": {
+              "$id": "/properties/data/properties/scodpc",
+              "type": "integer",
+              "title": "The Scodpc Schema"
+            },
+            "idsccmo": {
+              "$id": "/properties/data/properties/idsccmo",
+              "type": "integer",
+              "title": "The Idsccmo Schema"
+            },
+            "sccol": {
+              "$id": "/properties/data/properties/sccol",
+              "type": "integer",
+              "title": "The Sccol Schema"
+            },
+            "scodpi": {
+              "$id": "/properties/data/properties/scodpi",
+              "type": "integer",
+              "title": "The Scodpi Schema"
+            },
+            "idsccmt": {
+              "$id": "/properties/data/properties/idsccmt",
+              "type": "integer",
+              "title": "The Idsccmt Schema"
+            },
+            "sccmpt": {
+              "$id": "/properties/data/properties/sccmpt",
+              "type": "integer",
+              "title": "The Sccmpt Schema"
+            },
+            "sccmot": {
+              "$id": "/properties/data/properties/sccmot",
+              "type": "integer",
+              "title": "The Sccmot Schema"
+            },
+            "scha": {
+              "$id": "/properties/data/properties/scha",
+              "type": "integer",
+              "title": "The Scha Schema"
+            },
+            "scaf": {
+              "$id": "/properties/data/properties/scaf",
+              "type": "integer",
+              "title": "The Scaf Schema"
+            },
+            "scsnhaa": {
+              "$id": "/properties/data/properties/scsnhaa",
+              "type": "integer",
+              "title": "The Scsnhaa Schema"
+            },
+            "scsnhaf": {
+              "$id": "/properties/data/properties/scsnhaf",
+              "type": "integer",
+              "title": "The Scsnhaf Schema"
+            },
+            "idtrrval": {
+              "$id": "/properties/data/properties/idtrrval",
+              "type": "integer",
+              "title": "The Idtrrval Schema"
+            },
+            "trlreval": {
+              "$id": "/properties/data/properties/trlreval",
+              "type": "integer",
+              "title": "The Trlreval Schema"
+            },
+            "iglrtex": {
+              "$id": "/properties/data/properties/iglrtex",
+              "type": "integer",
+              "title": "The Iglrtex Schema"
+            },
+            "iglfxex": {
+              "$id": "/properties/data/properties/iglfxex",
+              "type": "integer",
+              "title": "The Iglfxex Schema"
+            },
+            "igledex": {
+              "$id": "/properties/data/properties/igledex",
+              "type": "integer",
+              "title": "The Igledex Schema"
+            },
+            "iglcmex": {
+              "$id": "/properties/data/properties/iglcmex",
+              "type": "integer",
+              "title": "The Iglcmex Schema"
+            },
+            "iglcrex": {
+              "$id": "/properties/data/properties/iglcrex",
+              "type": "integer",
+              "title": "The Iglcrex Schema"
+            },
+            "ntripc": {
+              "$id": "/properties/data/properties/ntripc",
+              "type": "integer",
+              "title": "The Ntripc Schema"
+            },
+            "ntrusgov": {
+              "$id": "/properties/data/properties/ntrusgov",
+              "type": "integer",
+              "title": "The Ntrusgov Schema"
+            },
+            "ntrmuni": {
+              "$id": "/properties/data/properties/ntrmuni",
+              "type": "integer",
+              "title": "The Ntrmuni Schema"
+            },
+            "ntrcomot": {
+              "$id": "/properties/data/properties/ntrcomot",
+              "type": "integer",
+              "title": "The Ntrcomot Schema"
+            },
+            "ntrfcfg": {
+              "$id": "/properties/data/properties/ntrfcfg",
+              "type": "integer",
+              "title": "The Ntrfcfg Schema"
+            },
+            "ntrfc": {
+              "$id": "/properties/data/properties/ntrfc",
+              "type": "integer",
+              "title": "The Ntrfc Schema"
+            },
+            "ntrfg": {
+              "$id": "/properties/data/properties/ntrfg",
+              "type": "integer",
+              "title": "The Ntrfg Schema"
+            },
+            "trnipcoc": {
+              "$id": "/properties/data/properties/trnipcoc",
+              "type": "integer",
+              "title": "The Trnipcoc Schema"
+            },
+            "trnusgov": {
+              "$id": "/properties/data/properties/trnusgov",
+              "type": "integer",
+              "title": "The Trnusgov Schema"
+            },
+            "trnmuni": {
+              "$id": "/properties/data/properties/trnmuni",
+              "type": "integer",
+              "title": "The Trnmuni Schema"
+            },
+            "trncbo": {
+              "$id": "/properties/data/properties/trncbo",
+              "type": "integer",
+              "title": "The Trncbo Schema"
+            },
+            "trnfcfg": {
+              "$id": "/properties/data/properties/trnfcfg",
+              "type": "integer",
+              "title": "The Trnfcfg Schema"
+            },
+            "trnfc": {
+              "$id": "/properties/data/properties/trnfc",
+              "type": "integer",
+              "title": "The Trnfc Schema"
+            },
+            "trnfg": {
+              "$id": "/properties/data/properties/trnfg",
+              "type": "integer",
+              "title": "The Trnfg Schema"
+            },
+            "ntrersfm": {
+              "$id": "/properties/data/properties/ntrersfm",
+              "type": "integer",
+              "title": "The Ntrersfm Schema"
+            },
+            "ntrersf2": {
+              "$id": "/properties/data/properties/ntrersf2",
+              "type": "integer",
+              "title": "The Ntrersf2 Schema"
+            },
+            "ntreloc": {
+              "$id": "/properties/data/properties/ntreloc",
+              "type": "integer",
+              "title": "The Ntreloc Schema"
+            },
+            "szlnres": {
+              "$id": "/properties/data/properties/szlnres",
+              "type": "integer",
+              "title": "The Szlnres Schema"
+            },
+            "szlnhel": {
+              "$id": "/properties/data/properties/szlnhel",
+              "type": "integer",
+              "title": "The Szlnhel Schema"
+            },
+            "szlncrcd": {
+              "$id": "/properties/data/properties/szlncrcd",
+              "type": "integer",
+              "title": "The Szlncrcd Schema"
+            },
+            "szlauto": {
+              "$id": "/properties/data/properties/szlauto",
+              "type": "integer",
+              "title": "The Szlauto Schema"
+            },
+            "szlncon": {
+              "$id": "/properties/data/properties/szlncon",
+              "type": "integer",
+              "title": "The Szlncon Schema"
+            },
+            "szlnci": {
+              "$id": "/properties/data/properties/szlnci",
+              "type": "integer",
+              "title": "The Szlnci Schema"
+            },
+            "szlnoth": {
+              "$id": "/properties/data/properties/szlnoth",
+              "type": "integer",
+              "title": "The Szlnoth Schema"
+            },
+            "sz30res": {
+              "$id": "/properties/data/properties/sz30res",
+              "type": "integer",
+              "title": "The Sz30res Schema"
+            },
+            "sz30hel": {
+              "$id": "/properties/data/properties/sz30hel",
+              "type": "integer",
+              "title": "The Sz30hel Schema"
+            },
+            "sz30crcd": {
+              "$id": "/properties/data/properties/sz30crcd",
+              "type": "integer",
+              "title": "The Sz30crcd Schema"
+            },
+            "sz30auto": {
+              "$id": "/properties/data/properties/sz30auto",
+              "type": "integer",
+              "title": "The Sz30auto Schema"
+            },
+            "sz30con": {
+              "$id": "/properties/data/properties/sz30con",
+              "type": "integer",
+              "title": "The Sz30con Schema"
+            },
+            "sz30ci": {
+              "$id": "/properties/data/properties/sz30ci",
+              "type": "integer",
+              "title": "The Sz30ci Schema"
+            },
+            "sz30oth": {
+              "$id": "/properties/data/properties/sz30oth",
+              "type": "integer",
+              "title": "The Sz30oth Schema"
+            },
+            "sz90res": {
+              "$id": "/properties/data/properties/sz90res",
+              "type": "integer",
+              "title": "The Sz90res Schema"
+            },
+            "sz90hel": {
+              "$id": "/properties/data/properties/sz90hel",
+              "type": "integer",
+              "title": "The Sz90hel Schema"
+            },
+            "sz90crcd": {
+              "$id": "/properties/data/properties/sz90crcd",
+              "type": "integer",
+              "title": "The Sz90crcd Schema"
+            },
+            "sz90auto": {
+              "$id": "/properties/data/properties/sz90auto",
+              "type": "integer",
+              "title": "The Sz90auto Schema"
+            },
+            "sz90con": {
+              "$id": "/properties/data/properties/sz90con",
+              "type": "integer",
+              "title": "The Sz90con Schema"
+            },
+            "sz90ci": {
+              "$id": "/properties/data/properties/sz90ci",
+              "type": "integer",
+              "title": "The Sz90ci Schema"
+            },
+            "sz90oth": {
+              "$id": "/properties/data/properties/sz90oth",
+              "type": "integer",
+              "title": "The Sz90oth Schema"
+            },
+            "szdrres": {
+              "$id": "/properties/data/properties/szdrres",
+              "type": "integer",
+              "title": "The Szdrres Schema"
+            },
+            "szdrhel": {
+              "$id": "/properties/data/properties/szdrhel",
+              "type": "integer",
+              "title": "The Szdrhel Schema"
+            },
+            "szdrcrcd": {
+              "$id": "/properties/data/properties/szdrcrcd",
+              "type": "integer",
+              "title": "The Szdrcrcd Schema"
+            },
+            "szdrauto": {
+              "$id": "/properties/data/properties/szdrauto",
+              "type": "integer",
+              "title": "The Szdrauto Schema"
+            },
+            "szdrcon": {
+              "$id": "/properties/data/properties/szdrcon",
+              "type": "integer",
+              "title": "The Szdrcon Schema"
+            },
+            "szdrci": {
+              "$id": "/properties/data/properties/szdrci",
+              "type": "integer",
+              "title": "The Szdrci Schema"
+            },
+            "szdroth": {
+              "$id": "/properties/data/properties/szdroth",
+              "type": "integer",
+              "title": "The Szdroth Schema"
+            },
+            "szcrres": {
+              "$id": "/properties/data/properties/szcrres",
+              "type": "integer",
+              "title": "The Szcrres Schema"
+            },
+            "szcrhel": {
+              "$id": "/properties/data/properties/szcrhel",
+              "type": "integer",
+              "title": "The Szcrhel Schema"
+            },
+            "szcrcrcd": {
+              "$id": "/properties/data/properties/szcrcrcd",
+              "type": "integer",
+              "title": "The Szcrcrcd Schema"
+            },
+            "szcrauto": {
+              "$id": "/properties/data/properties/szcrauto",
+              "type": "integer",
+              "title": "The Szcrauto Schema"
+            },
+            "szcrcon": {
+              "$id": "/properties/data/properties/szcrcon",
+              "type": "integer",
+              "title": "The Szcrcon Schema"
+            },
+            "szcrci": {
+              "$id": "/properties/data/properties/szcrci",
+              "type": "integer",
+              "title": "The Szcrci Schema"
+            },
+            "szcroth": {
+              "$id": "/properties/data/properties/szcroth",
+              "type": "integer",
+              "title": "The Szcroth Schema"
+            },
+            "asdrres": {
+              "$id": "/properties/data/properties/asdrres",
+              "type": "integer",
+              "title": "The Asdrres Schema"
+            },
+            "asdrhel": {
+              "$id": "/properties/data/properties/asdrhel",
+              "type": "integer",
+              "title": "The Asdrhel Schema"
+            },
+            "asdrcrcd": {
+              "$id": "/properties/data/properties/asdrcrcd",
+              "type": "integer",
+              "title": "The Asdrcrcd Schema"
+            },
+            "asdrauto": {
+              "$id": "/properties/data/properties/asdrauto",
+              "type": "integer",
+              "title": "The Asdrauto Schema"
+            },
+            "asdrcons": {
+              "$id": "/properties/data/properties/asdrcons",
+              "type": "integer",
+              "title": "The Asdrcons Schema"
+            },
+            "asdrci": {
+              "$id": "/properties/data/properties/asdrci",
+              "type": "integer",
+              "title": "The Asdrci Schema"
+            },
+            "asdroth": {
+              "$id": "/properties/data/properties/asdroth",
+              "type": "integer",
+              "title": "The Asdroth Schema"
+            },
+            "rslnrefm": {
+              "$id": "/properties/data/properties/rslnrefm",
+              "type": "integer",
+              "title": "The Rslnrefm Schema"
+            },
+            "rscons": {
+              "$id": "/properties/data/properties/rscons",
+              "type": "integer",
+              "title": "The Rscons Schema"
+            },
+            "rsmult": {
+              "$id": "/properties/data/properties/rsmult",
+              "type": "integer",
+              "title": "The Rsmult Schema"
+            },
+            "rsnres": {
+              "$id": "/properties/data/properties/rsnres",
+              "type": "integer",
+              "title": "The Rsnres Schema"
+            },
+            "rsci": {
+              "$id": "/properties/data/properties/rsci",
+              "type": "integer",
+              "title": "The Rsci Schema"
+            },
+            "rsother": {
+              "$id": "/properties/data/properties/rsother",
+              "type": "integer",
+              "title": "The Rsother Schema"
+            },
+            "p3rslnlt": {
+              "$id": "/properties/data/properties/p3rslnlt",
+              "type": "integer",
+              "title": "The P3rslnlt Schema"
+            },
+            "p3rslnfm": {
+              "$id": "/properties/data/properties/p3rslnfm",
+              "type": "integer",
+              "title": "The P3rslnfm Schema"
+            },
+            "p3rslnls": {
+              "$id": "/properties/data/properties/p3rslnls",
+              "type": "integer",
+              "title": "The P3rslnls Schema"
+            },
+            "p3rscons": {
+              "$id": "/properties/data/properties/p3rscons",
+              "type": "integer",
+              "title": "The P3rscons Schema"
+            },
+            "p3rsmult": {
+              "$id": "/properties/data/properties/p3rsmult",
+              "type": "integer",
+              "title": "The P3rsmult Schema"
+            },
+            "p3rsnres": {
+              "$id": "/properties/data/properties/p3rsnres",
+              "type": "integer",
+              "title": "The P3rsnres Schema"
+            },
+            "p3rsci": {
+              "$id": "/properties/data/properties/p3rsci",
+              "type": "integer",
+              "title": "The P3rsci Schema"
+            },
+            "p3rsoth": {
+              "$id": "/properties/data/properties/p3rsoth",
+              "type": "integer",
+              "title": "The P3rsoth Schema"
+            },
+            "p9rslnlt": {
+              "$id": "/properties/data/properties/p9rslnlt",
+              "type": "integer",
+              "title": "The P9rslnlt Schema"
+            },
+            "p9rslnfm": {
+              "$id": "/properties/data/properties/p9rslnfm",
+              "type": "integer",
+              "title": "The P9rslnfm Schema"
+            },
+            "p9rslnls": {
+              "$id": "/properties/data/properties/p9rslnls",
+              "type": "integer",
+              "title": "The P9rslnls Schema"
+            },
+            "p9rscons": {
+              "$id": "/properties/data/properties/p9rscons",
+              "type": "integer",
+              "title": "The P9rscons Schema"
+            },
+            "p9rsmult": {
+              "$id": "/properties/data/properties/p9rsmult",
+              "type": "integer",
+              "title": "The P9rsmult Schema"
+            },
+            "p9rsnres": {
+              "$id": "/properties/data/properties/p9rsnres",
+              "type": "integer",
+              "title": "The P9rsnres Schema"
+            },
+            "p9rsci": {
+              "$id": "/properties/data/properties/p9rsci",
+              "type": "integer",
+              "title": "The P9rsci Schema"
+            },
+            "p9rsoth": {
+              "$id": "/properties/data/properties/p9rsoth",
+              "type": "integer",
+              "title": "The P9rsoth Schema"
+            },
+            "narslnlt": {
+              "$id": "/properties/data/properties/narslnlt",
+              "type": "integer",
+              "title": "The Narslnlt Schema"
+            },
+            "narslnfm": {
+              "$id": "/properties/data/properties/narslnfm",
+              "type": "integer",
+              "title": "The Narslnfm Schema"
+            },
+            "narslnls": {
+              "$id": "/properties/data/properties/narslnls",
+              "type": "integer",
+              "title": "The Narslnls Schema"
+            },
+            "narscons": {
+              "$id": "/properties/data/properties/narscons",
+              "type": "integer",
+              "title": "The Narscons Schema"
+            },
+            "narsmult": {
+              "$id": "/properties/data/properties/narsmult",
+              "type": "integer",
+              "title": "The Narsmult Schema"
+            },
+            "narsnres": {
+              "$id": "/properties/data/properties/narsnres",
+              "type": "integer",
+              "title": "The Narsnres Schema"
+            },
+            "narsci": {
+              "$id": "/properties/data/properties/narsci",
+              "type": "integer",
+              "title": "The Narsci Schema"
+            },
+            "narsoth": {
+              "$id": "/properties/data/properties/narsoth",
+              "type": "integer",
+              "title": "The Narsoth Schema"
+            },
+            "scaot": {
+              "$id": "/properties/data/properties/scaot",
+              "type": "integer",
+              "title": "The Scaot Schema"
+            },
+            "scspn": {
+              "$id": "/properties/data/properties/scspn",
+              "type": "integer",
+              "title": "The Scspn Schema"
+            },
+            "scfmn": {
+              "$id": "/properties/data/properties/scfmn",
+              "type": "integer",
+              "title": "The Scfmn Schema"
+            },
+            "scgnm": {
+              "$id": "/properties/data/properties/scgnm",
+              "type": "integer",
+              "title": "The Scgnm Schema"
+            },
+            "sccptg": {
+              "$id": "/properties/data/properties/sccptg",
+              "type": "integer",
+              "title": "The Sccptg Schema"
+            },
+            "sccmog": {
+              "$id": "/properties/data/properties/sccmog",
+              "type": "integer",
+              "title": "The Sccmog Schema"
+            },
+            "tpma": {
+              "$id": "/properties/data/properties/tpma",
+              "type": "integer",
+              "title": "The Tpma Schema"
+            },
+            "tecma": {
+              "$id": "/properties/data/properties/tecma",
+              "type": "integer",
+              "title": "The Tecma Schema"
+            },
+            "tebma": {
+              "$id": "/properties/data/properties/tebma",
+              "type": "integer",
+              "title": "The Tebma Schema"
+            },
+            "torma": {
+              "$id": "/properties/data/properties/torma",
+              "type": "integer",
+              "title": "The Torma Schema"
+            },
+            "tcama": {
+              "$id": "/properties/data/properties/tcama",
+              "type": "integer",
+              "title": "The Tcama Schema"
+            },
+            "timma": {
+              "$id": "/properties/data/properties/timma",
+              "type": "integer",
+              "title": "The Timma Schema"
+            },
+            "tfema": {
+              "$id": "/properties/data/properties/tfema",
+              "type": "integer",
+              "title": "The Tfema Schema"
+            },
+            "tofma": {
+              "$id": "/properties/data/properties/tofma",
+              "type": "integer",
+              "title": "The Tofma Schema"
+            },
+            "tmaf": {
+              "$id": "/properties/data/properties/tmaf",
+              "type": "string",
+              "title": "The Tmaf Schema"
+            },
+            "trhma": {
+              "$id": "/properties/data/properties/trhma",
+              "type": "integer",
+              "title": "The Trhma Schema"
+            },
+            "tmasmf": {
+              "$id": "/properties/data/properties/tmasmf",
+              "type": "string",
+              "title": "The Tmasmf Schema"
+            },
+            "tpnma": {
+              "$id": "/properties/data/properties/tpnma",
+              "type": "integer",
+              "title": "The Tpnma Schema"
+            },
+            "tecnma": {
+              "$id": "/properties/data/properties/tecnma",
+              "type": "integer",
+              "title": "The Tecnma Schema"
+            },
+            "tebnma": {
+              "$id": "/properties/data/properties/tebnma",
+              "type": "integer",
+              "title": "The Tebnma Schema"
+            },
+            "tornma": {
+              "$id": "/properties/data/properties/tornma",
+              "type": "integer",
+              "title": "The Tornma Schema"
+            },
+            "tcanma": {
+              "$id": "/properties/data/properties/tcanma",
+              "type": "integer",
+              "title": "The Tcanma Schema"
+            },
+            "timnma": {
+              "$id": "/properties/data/properties/timnma",
+              "type": "integer",
+              "title": "The Timnma Schema"
+            },
+            "tfenma": {
+              "$id": "/properties/data/properties/tfenma",
+              "type": "integer",
+              "title": "The Tfenma Schema"
+            },
+            "tofnma": {
+              "$id": "/properties/data/properties/tofnma",
+              "type": "integer",
+              "title": "The Tofnma Schema"
+            },
+            "tcsnma": {
+              "$id": "/properties/data/properties/tcsnma",
+              "type": "integer",
+              "title": "The Tcsnma Schema"
+            },
+            "tnmaf": {
+              "$id": "/properties/data/properties/tnmaf",
+              "type": "string",
+              "title": "The Tnmaf Schema"
+            },
+            "trhnma": {
+              "$id": "/properties/data/properties/trhnma",
+              "type": "integer",
+              "title": "The Trhnma Schema"
+            },
+            "p3rersfm": {
+              "$id": "/properties/data/properties/p3rersfm",
+              "type": "integer",
+              "title": "The P3rersfm Schema"
+            },
+            "p3rersf2": {
+              "$id": "/properties/data/properties/p3rersf2",
+              "type": "integer",
+              "title": "The P3rersf2 Schema"
+            },
+            "p3reloc": {
+              "$id": "/properties/data/properties/p3reloc",
+              "type": "integer",
+              "title": "The P3reloc Schema"
+            },
+            "locfpsb": {
+              "$id": "/properties/data/properties/locfpsb",
+              "type": "integer",
+              "title": "The Locfpsb Schema"
+            },
+            "locfpsbk": {
+              "$id": "/properties/data/properties/locfpsbk",
+              "type": "integer",
+              "title": "The Locfpsbk Schema"
+            },
+            "locfsb": {
+              "$id": "/properties/data/properties/locfsb",
+              "type": "integer",
+              "title": "The Locfsb Schema"
+            },
+            "locfsbk": {
+              "$id": "/properties/data/properties/locfsbk",
+              "type": "integer",
+              "title": "The Locfsbk Schema"
+            },
+            "locpsb": {
+              "$id": "/properties/data/properties/locpsb",
+              "type": "integer",
+              "title": "The Locpsb Schema"
+            },
+            "locpsbk": {
+              "$id": "/properties/data/properties/locpsbk",
+              "type": "integer",
+              "title": "The Locpsbk Schema"
+            },
+            "loccom": {
+              "$id": "/properties/data/properties/loccom",
+              "type": "integer",
+              "title": "The Loccom Schema"
+            },
+            "ownschel": {
+              "$id": "/properties/data/properties/ownschel",
+              "type": "integer",
+              "title": "The Ownschel Schema"
+            },
+            "ownsccrd": {
+              "$id": "/properties/data/properties/ownsccrd",
+              "type": "integer",
+              "title": "The Ownsccrd Schema"
+            },
+            "ownscci": {
+              "$id": "/properties/data/properties/ownscci",
+              "type": "integer",
+              "title": "The Ownscci Schema"
+            },
+            "ownp3hel": {
+              "$id": "/properties/data/properties/ownp3hel",
+              "type": "integer",
+              "title": "The Ownp3hel Schema"
+            },
+            "ownp3crd": {
+              "$id": "/properties/data/properties/ownp3crd",
+              "type": "integer",
+              "title": "The Ownp3crd Schema"
+            },
+            "ownp3ci": {
+              "$id": "/properties/data/properties/ownp3ci",
+              "type": "integer",
+              "title": "The Ownp3ci Schema"
+            },
+            "ownp9hel": {
+              "$id": "/properties/data/properties/ownp9hel",
+              "type": "integer",
+              "title": "The Ownp9hel Schema"
+            },
+            "ownp9crd": {
+              "$id": "/properties/data/properties/ownp9crd",
+              "type": "integer",
+              "title": "The Ownp9crd Schema"
+            },
+            "ownp9ci": {
+              "$id": "/properties/data/properties/ownp9ci",
+              "type": "integer",
+              "title": "The Ownp9ci Schema"
+            },
+            "owndrhel": {
+              "$id": "/properties/data/properties/owndrhel",
+              "type": "integer",
+              "title": "The Owndrhel Schema"
+            },
+            "owndrcrd": {
+              "$id": "/properties/data/properties/owndrcrd",
+              "type": "integer",
+              "title": "The Owndrcrd Schema"
+            },
+            "owndrci": {
+              "$id": "/properties/data/properties/owndrci",
+              "type": "integer",
+              "title": "The Owndrci Schema"
+            },
+            "owncrhel": {
+              "$id": "/properties/data/properties/owncrhel",
+              "type": "integer",
+              "title": "The Owncrhel Schema"
+            },
+            "owncrcrd": {
+              "$id": "/properties/data/properties/owncrcrd",
+              "type": "integer",
+              "title": "The Owncrcrd Schema"
+            },
+            "owncrci": {
+              "$id": "/properties/data/properties/owncrci",
+              "type": "integer",
+              "title": "The Owncrci Schema"
+            },
+            "ownlnhel": {
+              "$id": "/properties/data/properties/ownlnhel",
+              "type": "integer",
+              "title": "The Ownlnhel Schema"
+            },
+            "ownlncrd": {
+              "$id": "/properties/data/properties/ownlncrd",
+              "type": "integer",
+              "title": "The Ownlncrd Schema"
+            },
+            "ownlnci": {
+              "$id": "/properties/data/properties/ownlnci",
+              "type": "integer",
+              "title": "The Ownlnci Schema"
+            },
+            "chcic": {
+              "$id": "/properties/data/properties/chcic",
+              "type": "integer",
+              "title": "The Chcic Schema"
+            },
+            "chitem": {
+              "$id": "/properties/data/properties/chitem",
+              "type": "integer",
+              "title": "The Chitem Schema"
+            },
+            "chcoin": {
+              "$id": "/properties/data/properties/chcoin",
+              "type": "integer",
+              "title": "The Chcoin Schema"
+            },
+            "chus": {
+              "$id": "/properties/data/properties/chus",
+              "type": "integer",
+              "title": "The Chus Schema"
+            },
+            "chusfbk": {
+              "$id": "/properties/data/properties/chusfbk",
+              "type": "integer",
+              "title": "The Chusfbk Schema"
+            },
+            "chnus": {
+              "$id": "/properties/data/properties/chnus",
+              "type": "integer",
+              "title": "The Chnus Schema"
+            },
+            "chnusfbk": {
+              "$id": "/properties/data/properties/chnusfbk",
+              "type": "integer",
+              "title": "The Chnusfbk Schema"
+            },
+            "chfrb": {
+              "$id": "/properties/data/properties/chfrb",
+              "type": "integer",
+              "title": "The Chfrb Schema"
+            },
+            "chbalni": {
+              "$id": "/properties/data/properties/chbalni",
+              "type": "integer",
+              "title": "The Chbalni Schema"
+            },
+            "idctder": {
+              "$id": "/properties/data/properties/idctder",
+              "type": "integer",
+              "title": "The Idctder Schema"
+            },
+            "ctdergty": {
+              "$id": "/properties/data/properties/ctdergty",
+              "type": "integer",
+              "title": "The Ctdergty Schema"
+            },
+            "ctderben": {
+              "$id": "/properties/data/properties/ctderben",
+              "type": "integer",
+              "title": "The Ctderben Schema"
+            },
+            "rt": {
+              "$id": "/properties/data/properties/rt",
+              "type": "integer",
+              "title": "The Rt Schema"
+            },
+            "rtnvs": {
+              "$id": "/properties/data/properties/rtnvs",
+              "type": "integer",
+              "title": "The Rtnvs Schema"
+            },
+            "rtffc": {
+              "$id": "/properties/data/properties/rtffc",
+              "type": "integer",
+              "title": "The Rtffc Schema"
+            },
+            "rtwoc": {
+              "$id": "/properties/data/properties/rtwoc",
+              "type": "integer",
+              "title": "The Rtwoc Schema"
+            },
+            "rtpoc": {
+              "$id": "/properties/data/properties/rtpoc",
+              "type": "integer",
+              "title": "The Rtpoc Schema"
+            },
+            "fx": {
+              "$id": "/properties/data/properties/fx",
+              "type": "integer",
+              "title": "The Fx Schema"
+            },
+            "fxnvs": {
+              "$id": "/properties/data/properties/fxnvs",
+              "type": "integer",
+              "title": "The Fxnvs Schema"
+            },
+            "fxffc": {
+              "$id": "/properties/data/properties/fxffc",
+              "type": "integer",
+              "title": "The Fxffc Schema"
+            },
+            "fxspot": {
+              "$id": "/properties/data/properties/fxspot",
+              "type": "integer",
+              "title": "The Fxspot Schema"
+            },
+            "fxwoc": {
+              "$id": "/properties/data/properties/fxwoc",
+              "type": "integer",
+              "title": "The Fxwoc Schema"
+            },
+            "fxpoc": {
+              "$id": "/properties/data/properties/fxpoc",
+              "type": "integer",
+              "title": "The Fxpoc Schema"
+            },
+            "edcm": {
+              "$id": "/properties/data/properties/edcm",
+              "type": "integer",
+              "title": "The Edcm Schema"
+            },
+            "othnvs": {
+              "$id": "/properties/data/properties/othnvs",
+              "type": "integer",
+              "title": "The Othnvs Schema"
+            },
+            "othffc": {
+              "$id": "/properties/data/properties/othffc",
+              "type": "integer",
+              "title": "The Othffc Schema"
+            },
+            "othwoc": {
+              "$id": "/properties/data/properties/othwoc",
+              "type": "integer",
+              "title": "The Othwoc Schema"
+            },
+            "othpoc": {
+              "$id": "/properties/data/properties/othpoc",
+              "type": "integer",
+              "title": "The Othpoc Schema"
+            },
+            "iddepsam": {
+              "$id": "/properties/data/properties/iddepsam",
+              "type": "integer",
+              "title": "The Iddepsam Schema"
+            },
+            "iddepsmb": {
+              "$id": "/properties/data/properties/iddepsmb",
+              "type": "integer",
+              "title": "The Iddepsmb Schema"
+            },
+            "depsmra": {
+              "$id": "/properties/data/properties/depsmra",
+              "type": "integer",
+              "title": "The Depsmra Schema"
+            },
+            "depsmrn": {
+              "$id": "/properties/data/properties/depsmrn",
+              "type": "integer",
+              "title": "The Depsmrn Schema"
+            },
+            "ntrcdsmj": {
+              "$id": "/properties/data/properties/ntrcdsmj",
+              "type": "integer",
+              "title": "The Ntrcdsmj Schema"
+            },
+            "iddeplam": {
+              "$id": "/properties/data/properties/iddeplam",
+              "type": "integer",
+              "title": "The Iddeplam Schema"
+            },
+            "iddeplgb": {
+              "$id": "/properties/data/properties/iddeplgb",
+              "type": "integer",
+              "title": "The Iddeplgb Schema"
+            },
+            "deplgra": {
+              "$id": "/properties/data/properties/deplgra",
+              "type": "integer",
+              "title": "The Deplgra Schema"
+            },
+            "deplgrn": {
+              "$id": "/properties/data/properties/deplgrn",
+              "type": "integer",
+              "title": "The Deplgrn Schema"
+            },
+            "trnnia": {
+              "$id": "/properties/data/properties/trnnia",
+              "type": "integer",
+              "title": "The Trnnia Schema"
+            },
+            "trnnin": {
+              "$id": "/properties/data/properties/trnnin",
+              "type": "integer",
+              "title": "The Trnnin Schema"
+            },
+            "ntrtmlgj": {
+              "$id": "/properties/data/properties/ntrtmlgj",
+              "type": "integer",
+              "title": "The Ntrtmlgj Schema"
+            },
+            "tpimatot": {
+              "$id": "/properties/data/properties/tpimatot",
+              "type": "string",
+              "title": "The Tpimatot Schema"
+            },
+            "tpini": {
+              "$id": "/properties/data/properties/tpini",
+              "type": "string",
+              "title": "The Tpini Schema"
+            },
+            "tpii": {
+              "$id": "/properties/data/properties/tpii",
+              "type": "string",
+              "title": "The Tpii Schema"
+            },
+            "tpiscus": {
+              "$id": "/properties/data/properties/tpiscus",
+              "type": "string",
+              "title": "The Tpiscus Schema"
+            },
+            "tpiscmun": {
+              "$id": "/properties/data/properties/tpiscmun",
+              "type": "string",
+              "title": "The Tpiscmun Schema"
+            },
+            "tpimmf": {
+              "$id": "/properties/data/properties/tpimmf",
+              "type": "string",
+              "title": "The Tpimmf Schema"
+            },
+            "tpieqf": {
+              "$id": "/properties/data/properties/tpieqf",
+              "type": "string",
+              "title": "The Tpieqf Schema"
+            },
+            "tpiothf": {
+              "$id": "/properties/data/properties/tpiothf",
+              "type": "string",
+              "title": "The Tpiothf Schema"
+            },
+            "tpitrf": {
+              "$id": "/properties/data/properties/tpitrf",
+              "type": "string",
+              "title": "The Tpitrf Schema"
+            },
+            "tpisto": {
+              "$id": "/properties/data/properties/tpisto",
+              "type": "string",
+              "title": "The Tpisto Schema"
+            },
+            "tpiothb": {
+              "$id": "/properties/data/properties/tpiothb",
+              "type": "string",
+              "title": "The Tpiothb Schema"
+            },
+            "tpiuf": {
+              "$id": "/properties/data/properties/tpiuf",
+              "type": "string",
+              "title": "The Tpiuf Schema"
+            },
+            "tpicps": {
+              "$id": "/properties/data/properties/tpicps",
+              "type": "string",
+              "title": "The Tpicps Schema"
+            },
+            "tpiremtg": {
+              "$id": "/properties/data/properties/tpiremtg",
+              "type": "string",
+              "title": "The Tpiremtg Schema"
+            },
+            "tpire": {
+              "$id": "/properties/data/properties/tpire",
+              "type": "string",
+              "title": "The Tpire Schema"
+            },
+            "tpimisc": {
+              "$id": "/properties/data/properties/tpimisc",
+              "type": "string",
+              "title": "The Tpimisc Schema"
+            },
+            "tematot": {
+              "$id": "/properties/data/properties/tematot",
+              "type": "string",
+              "title": "The Tematot Schema"
+            },
+            "teni": {
+              "$id": "/properties/data/properties/teni",
+              "type": "string",
+              "title": "The Teni Schema"
+            },
+            "tei": {
+              "$id": "/properties/data/properties/tei",
+              "type": "string",
+              "title": "The Tei Schema"
+            },
+            "tescus": {
+              "$id": "/properties/data/properties/tescus",
+              "type": "string",
+              "title": "The Tescus Schema"
+            },
+            "tescmun": {
+              "$id": "/properties/data/properties/tescmun",
+              "type": "string",
+              "title": "The Tescmun Schema"
+            },
+            "temmf": {
+              "$id": "/properties/data/properties/temmf",
+              "type": "string",
+              "title": "The Temmf Schema"
+            },
+            "teeqf": {
+              "$id": "/properties/data/properties/teeqf",
+              "type": "string",
+              "title": "The Teeqf Schema"
+            },
+            "teothf": {
+              "$id": "/properties/data/properties/teothf",
+              "type": "string",
+              "title": "The Teothf Schema"
+            },
+            "tetrf": {
+              "$id": "/properties/data/properties/tetrf",
+              "type": "string",
+              "title": "The Tetrf Schema"
+            },
+            "testo": {
+              "$id": "/properties/data/properties/testo",
+              "type": "string",
+              "title": "The Testo Schema"
+            },
+            "teothb": {
+              "$id": "/properties/data/properties/teothb",
+              "type": "string",
+              "title": "The Teothb Schema"
+            },
+            "teuf": {
+              "$id": "/properties/data/properties/teuf",
+              "type": "string",
+              "title": "The Teuf Schema"
+            },
+            "tecps": {
+              "$id": "/properties/data/properties/tecps",
+              "type": "string",
+              "title": "The Tecps Schema"
+            },
+            "teremtg": {
+              "$id": "/properties/data/properties/teremtg",
+              "type": "string",
+              "title": "The Teremtg Schema"
+            },
+            "tere": {
+              "$id": "/properties/data/properties/tere",
+              "type": "string",
+              "title": "The Tere Schema"
+            },
+            "temisc": {
+              "$id": "/properties/data/properties/temisc",
+              "type": "string",
+              "title": "The Temisc Schema"
+            },
+            "tomatot": {
+              "$id": "/properties/data/properties/tomatot",
+              "type": "string",
+              "title": "The Tomatot Schema"
+            },
+            "toni": {
+              "$id": "/properties/data/properties/toni",
+              "type": "string",
+              "title": "The Toni Schema"
+            },
+            "toi": {
+              "$id": "/properties/data/properties/toi",
+              "type": "string",
+              "title": "The Toi Schema"
+            },
+            "toscus": {
+              "$id": "/properties/data/properties/toscus",
+              "type": "string",
+              "title": "The Toscus Schema"
+            },
+            "toscmun": {
+              "$id": "/properties/data/properties/toscmun",
+              "type": "string",
+              "title": "The Toscmun Schema"
+            },
+            "tommf": {
+              "$id": "/properties/data/properties/tommf",
+              "type": "string",
+              "title": "The Tommf Schema"
+            },
+            "toeqf": {
+              "$id": "/properties/data/properties/toeqf",
+              "type": "string",
+              "title": "The Toeqf Schema"
+            },
+            "toothf": {
+              "$id": "/properties/data/properties/toothf",
+              "type": "string",
+              "title": "The Toothf Schema"
+            },
+            "totrf": {
+              "$id": "/properties/data/properties/totrf",
+              "type": "string",
+              "title": "The Totrf Schema"
+            },
+            "tosto": {
+              "$id": "/properties/data/properties/tosto",
+              "type": "string",
+              "title": "The Tosto Schema"
+            },
+            "toothb": {
+              "$id": "/properties/data/properties/toothb",
+              "type": "string",
+              "title": "The Toothb Schema"
+            },
+            "touf": {
+              "$id": "/properties/data/properties/touf",
+              "type": "string",
+              "title": "The Touf Schema"
+            },
+            "tocps": {
+              "$id": "/properties/data/properties/tocps",
+              "type": "string",
+              "title": "The Tocps Schema"
+            },
+            "toremtg": {
+              "$id": "/properties/data/properties/toremtg",
+              "type": "string",
+              "title": "The Toremtg Schema"
+            },
+            "tore": {
+              "$id": "/properties/data/properties/tore",
+              "type": "string",
+              "title": "The Tore Schema"
+            },
+            "tomisc": {
+              "$id": "/properties/data/properties/tomisc",
+              "type": "string",
+              "title": "The Tomisc Schema"
+            },
+            "sziores": {
+              "$id": "/properties/data/properties/sziores",
+              "type": "integer",
+              "title": "The Sziores Schema"
+            },
+            "sziohel": {
+              "$id": "/properties/data/properties/sziohel",
+              "type": "integer",
+              "title": "The Sziohel Schema"
+            },
+            "sziocrcd": {
+              "$id": "/properties/data/properties/sziocrcd",
+              "type": "integer",
+              "title": "The Sziocrcd Schema"
+            },
+            "szioauto": {
+              "$id": "/properties/data/properties/szioauto",
+              "type": "integer",
+              "title": "The Szioauto Schema"
+            },
+            "sziocon": {
+              "$id": "/properties/data/properties/sziocon",
+              "type": "integer",
+              "title": "The Sziocon Schema"
+            },
+            "szioci": {
+              "$id": "/properties/data/properties/szioci",
+              "type": "integer",
+              "title": "The Szioci Schema"
+            },
+            "sziooth": {
+              "$id": "/properties/data/properties/sziooth",
+              "type": "integer",
+              "title": "The Sziooth Schema"
+            },
+            "szsscres": {
+              "$id": "/properties/data/properties/szsscres",
+              "type": "integer",
+              "title": "The Szsscres Schema"
+            },
+            "szsschel": {
+              "$id": "/properties/data/properties/szsschel",
+              "type": "integer",
+              "title": "The Szsschel Schema"
+            },
+            "szssccrd": {
+              "$id": "/properties/data/properties/szssccrd",
+              "type": "integer",
+              "title": "The Szssccrd Schema"
+            },
+            "szsscaut": {
+              "$id": "/properties/data/properties/szsscaut",
+              "type": "integer",
+              "title": "The Szsscaut Schema"
+            },
+            "szssccon": {
+              "$id": "/properties/data/properties/szssccon",
+              "type": "integer",
+              "title": "The Szssccon Schema"
+            },
+            "szsscci": {
+              "$id": "/properties/data/properties/szsscci",
+              "type": "integer",
+              "title": "The Szsscci Schema"
+            },
+            "szsscoth": {
+              "$id": "/properties/data/properties/szsscoth",
+              "type": "integer",
+              "title": "The Szsscoth Schema"
+            },
+            "idslcres": {
+              "$id": "/properties/data/properties/idslcres",
+              "type": "integer",
+              "title": "The Idslcres Schema"
+            },
+            "idslchel": {
+              "$id": "/properties/data/properties/idslchel",
+              "type": "integer",
+              "title": "The Idslchel Schema"
+            },
+            "idslcccd": {
+              "$id": "/properties/data/properties/idslcccd",
+              "type": "integer",
+              "title": "The Idslcccd Schema"
+            },
+            "idslcaut": {
+              "$id": "/properties/data/properties/idslcaut",
+              "type": "integer",
+              "title": "The Idslcaut Schema"
+            },
+            "idslccon": {
+              "$id": "/properties/data/properties/idslccon",
+              "type": "integer",
+              "title": "The Idslccon Schema"
+            },
+            "idslccci": {
+              "$id": "/properties/data/properties/idslccci",
+              "type": "integer",
+              "title": "The Idslccci Schema"
+            },
+            "idslcoth": {
+              "$id": "/properties/data/properties/idslcoth",
+              "type": "integer",
+              "title": "The Idslcoth Schema"
+            },
+            "enceres": {
+              "$id": "/properties/data/properties/enceres",
+              "type": "integer",
+              "title": "The Enceres Schema"
+            },
+            "encehel": {
+              "$id": "/properties/data/properties/encehel",
+              "type": "integer",
+              "title": "The Encehel Schema"
+            },
+            "encecrcd": {
+              "$id": "/properties/data/properties/encecrcd",
+              "type": "integer",
+              "title": "The Encecrcd Schema"
+            },
+            "enceauto": {
+              "$id": "/properties/data/properties/enceauto",
+              "type": "integer",
+              "title": "The Enceauto Schema"
+            },
+            "encecon": {
+              "$id": "/properties/data/properties/encecon",
+              "type": "integer",
+              "title": "The Encecon Schema"
+            },
+            "enceci": {
+              "$id": "/properties/data/properties/enceci",
+              "type": "integer",
+              "title": "The Enceci Schema"
+            },
+            "enceoth": {
+              "$id": "/properties/data/properties/enceoth",
+              "type": "integer",
+              "title": "The Enceoth Schema"
+            },
+            "asceres": {
+              "$id": "/properties/data/properties/asceres",
+              "type": "integer",
+              "title": "The Asceres Schema"
+            },
+            "ascehel": {
+              "$id": "/properties/data/properties/ascehel",
+              "type": "integer",
+              "title": "The Ascehel Schema"
+            },
+            "ascecrcd": {
+              "$id": "/properties/data/properties/ascecrcd",
+              "type": "integer",
+              "title": "The Ascecrcd Schema"
+            },
+            "asceauto": {
+              "$id": "/properties/data/properties/asceauto",
+              "type": "integer",
+              "title": "The Asceauto Schema"
+            },
+            "ascecons": {
+              "$id": "/properties/data/properties/ascecons",
+              "type": "integer",
+              "title": "The Ascecons Schema"
+            },
+            "asceci": {
+              "$id": "/properties/data/properties/asceci",
+              "type": "integer",
+              "title": "The Asceci Schema"
+            },
+            "asceoth": {
+              "$id": "/properties/data/properties/asceoth",
+              "type": "integer",
+              "title": "The Asceoth Schema"
+            },
+            "cd3less": {
+              "$id": "/properties/data/properties/cd3less",
+              "type": "integer",
+              "title": "The Cd3less Schema"
+            },
+            "cd3t12s": {
+              "$id": "/properties/data/properties/cd3t12s",
+              "type": "integer",
+              "title": "The Cd3t12s Schema"
+            },
+            "cd1t3s": {
+              "$id": "/properties/data/properties/cd1t3s",
+              "type": "integer",
+              "title": "The Cd1t3s Schema"
+            },
+            "cdov3s": {
+              "$id": "/properties/data/properties/cdov3s",
+              "type": "integer",
+              "title": "The Cdov3s Schema"
+            },
+            "p3gty": {
+              "$id": "/properties/data/properties/p3gty",
+              "type": "integer",
+              "title": "The P3gty Schema"
+            },
+            "p3gtygnm": {
+              "$id": "/properties/data/properties/p3gtygnm",
+              "type": "integer",
+              "title": "The P3gtygnm Schema"
+            },
+            "p9gty": {
+              "$id": "/properties/data/properties/p9gty",
+              "type": "integer",
+              "title": "The P9gty Schema"
+            },
+            "p9gtygnm": {
+              "$id": "/properties/data/properties/p9gtygnm",
+              "type": "integer",
+              "title": "The P9gtygnm Schema"
+            },
+            "nagty": {
+              "$id": "/properties/data/properties/nagty",
+              "type": "integer",
+              "title": "The Nagty Schema"
+            },
+            "nagtygnm": {
+              "$id": "/properties/data/properties/nagtygnm",
+              "type": "integer",
+              "title": "The Nagtygnm Schema"
+            },
+            "cd3les": {
+              "$id": "/properties/data/properties/cd3les",
+              "type": "integer",
+              "title": "The Cd3les Schema"
+            },
+            "cd3t12": {
+              "$id": "/properties/data/properties/cd3t12",
+              "type": "integer",
+              "title": "The Cd3t12 Schema"
+            },
+            "cd1t3": {
+              "$id": "/properties/data/properties/cd1t3",
+              "type": "integer",
+              "title": "The Cd1t3 Schema"
+            },
+            "cdov3": {
+              "$id": "/properties/data/properties/cdov3",
+              "type": "integer",
+              "title": "The Cdov3 Schema"
+            },
+            "p9rersfm": {
+              "$id": "/properties/data/properties/p9rersfm",
+              "type": "integer",
+              "title": "The P9rersfm Schema"
+            },
+            "p9rersf2": {
+              "$id": "/properties/data/properties/p9rersf2",
+              "type": "integer",
+              "title": "The P9rersf2 Schema"
+            },
+            "p9reloc": {
+              "$id": "/properties/data/properties/p9reloc",
+              "type": "integer",
+              "title": "The P9reloc Schema"
+            },
+            "lnrenr4": {
+              "$id": "/properties/data/properties/lnrenr4",
+              "type": "integer",
+              "title": "The Lnrenr4 Schema"
+            },
+            "lnrenr1": {
+              "$id": "/properties/data/properties/lnrenr1",
+              "type": "integer",
+              "title": "The Lnrenr1 Schema"
+            },
+            "lnrenr2": {
+              "$id": "/properties/data/properties/lnrenr2",
+              "type": "integer",
+              "title": "The Lnrenr2 Schema"
+            },
+            "lnrenr3": {
+              "$id": "/properties/data/properties/lnrenr3",
+              "type": "integer",
+              "title": "The Lnrenr3 Schema"
+            },
+            "lnci4": {
+              "$id": "/properties/data/properties/lnci4",
+              "type": "integer",
+              "title": "The Lnci4 Schema"
+            },
+            "lnci1": {
+              "$id": "/properties/data/properties/lnci1",
+              "type": "integer",
+              "title": "The Lnci1 Schema"
+            },
+            "lnci2": {
+              "$id": "/properties/data/properties/lnci2",
+              "type": "integer",
+              "title": "The Lnci2 Schema"
+            },
+            "lnci3": {
+              "$id": "/properties/data/properties/lnci3",
+              "type": "integer",
+              "title": "The Lnci3 Schema"
+            },
+            "lnreag4": {
+              "$id": "/properties/data/properties/lnreag4",
+              "type": "integer",
+              "title": "The Lnreag4 Schema"
+            },
+            "lnreag1": {
+              "$id": "/properties/data/properties/lnreag1",
+              "type": "integer",
+              "title": "The Lnreag1 Schema"
+            },
+            "lnreag2": {
+              "$id": "/properties/data/properties/lnreag2",
+              "type": "integer",
+              "title": "The Lnreag2 Schema"
+            },
+            "lnreag3": {
+              "$id": "/properties/data/properties/lnreag3",
+              "type": "integer",
+              "title": "The Lnreag3 Schema"
+            },
+            "lnag4": {
+              "$id": "/properties/data/properties/lnag4",
+              "type": "integer",
+              "title": "The Lnag4 Schema"
+            },
+            "lnag1": {
+              "$id": "/properties/data/properties/lnag1",
+              "type": "integer",
+              "title": "The Lnag1 Schema"
+            },
+            "lnag2": {
+              "$id": "/properties/data/properties/lnag2",
+              "type": "integer",
+              "title": "The Lnag2 Schema"
+            },
+            "lnag3": {
+              "$id": "/properties/data/properties/lnag3",
+              "type": "integer",
+              "title": "The Lnag3 Schema"
+            },
+            "lnrenr4n": {
+              "$id": "/properties/data/properties/lnrenr4n",
+              "type": "integer",
+              "title": "The Lnrenr4n Schema"
+            },
+            "lnrenr1n": {
+              "$id": "/properties/data/properties/lnrenr1n",
+              "type": "integer",
+              "title": "The Lnrenr1n Schema"
+            },
+            "lnrenr2n": {
+              "$id": "/properties/data/properties/lnrenr2n",
+              "type": "integer",
+              "title": "The Lnrenr2n Schema"
+            },
+            "lnrenr3n": {
+              "$id": "/properties/data/properties/lnrenr3n",
+              "type": "integer",
+              "title": "The Lnrenr3n Schema"
+            },
+            "lnci4n": {
+              "$id": "/properties/data/properties/lnci4n",
+              "type": "integer",
+              "title": "The Lnci4n Schema"
+            },
+            "lnci1n": {
+              "$id": "/properties/data/properties/lnci1n",
+              "type": "integer",
+              "title": "The Lnci1n Schema"
+            },
+            "lnci2n": {
+              "type": "integer",
+              "title": "The Lnci2n Schema"
+            },
+            "lnci3n": {
+              "type": "integer",
+              "title": "The Lnci3n Schema"
+            },
+            "lnreag4n": {
+              "type": "integer",
+              "title": "The Lnreag4n Schema"
+            },
+            "lnreag1n": {
+              "type": "integer",
+              "title": "The Lnreag1n Schema"
+            },
+            "lnreag2n": {
+              "type": "integer",
+              "title": "The Lnreag2n Schema"
+            },
+            "lnreag3n": {
+              "type": "integer",
+              "title": "The Lnreag3n Schema"
+            },
+            "lnag4n": {
+              "type": "integer",
+              "title": "The Lnag4n Schema"
+            },
+            "lnag1n": {
+              "type": "integer",
+              "title": "The Lnag1n Schema"
+            },
+            "lnag2n": {
+              "type": "integer",
+              "title": "The Lnag2n Schema"
+            },
+            "lnag3n": {
+              "type": "integer",
+              "title": "The Lnag3n Schema"
+            },
+            "iinvfee": {
+              "type": "integer",
+              "title": "The Iinvfee Schema"
+            },
+            "ivencap": {
+              "type": "integer",
+              "title": "The Ivencap Schema"
+            },
+            "iserfee": {
+              "type": "integer",
+              "title": "The Iserfee Schema"
+            },
+            "isecz": {
+              "type": "integer",
+              "title": "The Isecz Schema"
+            },
+            "iinscom": {
+              "type": "integer",
+              "title": "The Iinscom Schema"
+            },
+            "iinsund": {
+              "type": "integer",
+              "title": "The Iinsund Schema"
+            },
+            "iinsoth": {
+              "type": "integer",
+              "title": "The Iinsoth Schema"
+            },
+            "netgnsln": {
+              "type": "integer",
+              "title": "The Netgnsln Schema"
+            },
+            "netgnsre": {
+              "type": "integer",
+              "title": "The Netgnsre Schema"
+            },
+            "netgnast": {
+              "type": "integer",
+              "title": "The Netgnast Schema"
+            },
+            "iotnii": {
+              "type": "integer",
+              "title": "The Iotnii Schema"
+            },
+            "id": {
+              "type": "string",
+              "title": "The Id Schema"
+            },
+            "type": {
+              "type": "string",
+              "title": "The Type Schema"
             }
           }
         }
